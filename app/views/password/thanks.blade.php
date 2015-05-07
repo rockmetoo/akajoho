@@ -1,4 +1,4 @@
-@extends('layouts.studentHeader')
+@extends('layouts.akachanHeader')
 
 @include('layouts.leftsidemenu')
 
