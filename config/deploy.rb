@@ -14,7 +14,7 @@ set :scm, :git
 set :deploy_to, '/var/www/akazoho'
 set :deploy_via, :remote_cache
 set :use_sudo, true
-set :pty, false
+set :pty, true
 set :copy_exclude, [".git", ".gitignore", ".tags", ".tags_sorted_by_file", "Capfile", "apiary.apib"]
 set :keep_releases, 4
 
