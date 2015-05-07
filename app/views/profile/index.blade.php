@@ -152,6 +152,17 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
+									<div class="form-group">
+										<label>Gender</label>
+										<label class="radio-inline">
+											<input type="radio" value="1" id="female" name="gender" {{ ($profile[0]->gender == 1) ? 'checked=""' : '' }} />Female
+										</label>
+										<label class="radio-inline">
+											<input type="radio" value="2" id="male" name="gender" {{ ($profile[0]->gender == 2) ? 'checked=""' : '' }} />Male
+										</label>
+									</div>
+								</div>
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Post Code</label>
                                         <input type="text" class="form-control" name="postcode" value="{{ (Input::old('postcode')) ? Input::old('postcode') : $profile[0]->postcode }}" />

@@ -33,6 +33,8 @@ App::before(function($request)
                 else $app->USER_PROFILE['fullName'] = $app->USER_PROFILE['firstName'].' '.$app->USER_PROFILE['lastName'];
                 
                 if(strlen($app->USER_PROFILE['fullName']) > 13) $app->USER_PROFILE['fullName'] = substr($app->USER_PROFILE['fullName'], 0, 11) . '..';
+            } else {
+            	$app->USER_PROFILE['fullName'] = 'No Name';
             }
     
         } else {

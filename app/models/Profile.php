@@ -56,6 +56,7 @@ class Profile extends Eloquent
                 'firstName'   => $postData['firstName'],
                 'lastName'    => $postData['lastName'],
             	'dob'		  => strtotime($postData['dob']),
+            	'gender'	  => $postData['gender'],
                 'postcode'    => $postData['postcode'],
                 'address'     => $postData['address'],
                 'p0'          => $md5Name.'_32X32.jpg',
@@ -70,6 +71,7 @@ class Profile extends Eloquent
                 'postcode'    => $postData['postcode'],
                 'address'     => $postData['address'],
             	'dob'		  => strtotime($postData['dob']),
+            	'gender'	  => $postData['gender'],
                 'dateUpdated' => $now
             );
         }
