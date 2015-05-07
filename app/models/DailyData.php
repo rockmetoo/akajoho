@@ -129,14 +129,15 @@ class DailyData extends Eloquent
     
     public function scopeSavePoop($query, $userId, $postData)
     {
-    	$now	= date('Y-m-d H:i:s');
-    	$query	= DB::connection('akazoho')->table('poop');
+    	$now		= date('Y-m-d H:i:s');
+    	$strtotime	= strtotime($postData['when']);
+    	$query		= DB::connection('akazoho')->table('poop');
     	 
     	$dataForPoop = array(
     		'userId'    => $userId,
     		'color'		=> $postData['color'],
     		'type'		=> $postData['type'],
-    		'when'		=> strtotime($postData['when']),
+    		'when'		=> $strtotime,
     		'createdBy' => $userId,
     		'updatedBy' => $userId,
     		'dateCreated' => $now,
@@ -144,5 +145,21 @@ class DailyData extends Eloquent
     	);
     
     	$query->insert($dataForPoop);
+    	
+    	if (!empty($postData['includeUrination'])) {
+    		$query	= DB::connection('akazoho')->table('urination');
+    		 
+    		$dataForUrination = array(
+    			'userId'    => $userId,
+    			'color'		=> Config::get('urination.colors')['1'],
+    			'when'		=> $strtotime,
+    			'createdBy' => $userId,
+    			'updatedBy' => $userId,
+    			'dateCreated' => $now,
+    			'dateUpdated' => $now
+    		);
+    		
+    		$query->insert($dataForUrination);
+    	}
     }
 }

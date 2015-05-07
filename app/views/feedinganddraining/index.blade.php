@@ -50,6 +50,10 @@
 			$('.addPoopRow').show();
 		});
 
+    	setTimeout(function () {
+			$('.alert-success').hide('slow');
+        }, 8000);
+
         $(".multipleFeedingGraph div").each(function(e) {
             if (e != 0) $(this).hide();
         });
@@ -496,8 +500,15 @@
                                         @endif
                                     </div>
                                 </div>
-								<div class="col-lg-12">
+								<div class="col-lg-2">
                                     <button type="submit" class="btn btn-default">Add</button>
+                                </div>
+								<div class="col-lg-6">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" value="1" name="includeUrination">Is Urination?
+										</label>
+									</div>
                                 </div>
 							</form>
 						</div>

@@ -44,6 +44,10 @@
     		$('.addHeatRow').removeClass('hidden');
 			$('.addHeatRow').show();
 		});
+
+    	setTimeout(function () {
+			$('.alert-success').hide('slow');
+        }, 8000);
     });
 
     @if (!empty($lastFewEntriesForWeightGraphData))
