@@ -335,6 +335,24 @@ table.dataTable thead .sorting:after {
     color: #b52b27;
 }
 
+.panel-orange {
+    border-color: #d9534f;
+}
+
+.panel-orange .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #FE642E;
+}
+
+.panel-orange a {
+    color: #d9534f;
+}
+
+.panel-orange a:hover {
+    color: #b52b27;
+}
+
 .panel-yellow {
     border-color: #f0ad4e;
 }
@@ -654,4 +672,25 @@ input[type=file] {
 .indexSearchTitle {
 	font-size: 18px;
     font-weight: 200;
+}
+
+.legend {
+    width: auto;
+}
+
+.legend .title {
+	display: block;
+	margin-bottom: 0.5em;
+	line-height: 1.2em;
+	padding: 0 0.3em;
+}
+
+.legend .color-sample {
+	display: block;
+	float: left;
+	width: 1em;
+	height: 1em;
+	border: 2px solid; /* Comment out if you don't want to show the fillColor */
+	border-radius: 0.5em; /* Comment out if you prefer squarish samples */
+	margin-right: 0.5em;
 }

@@ -130,7 +130,7 @@
     		labels : [{{ $dailyBreastFeedingTimeSpan }}],
     		datasets : [
     			{
-    				label: "Today's Breast Milk Feeding",
+    				label: "Breast Milk",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -148,7 +148,7 @@
     		labels : [{{ $dailyPowderMilkFeedingTimeSpan }}],
     		datasets : [
     			{
-    				label: "Today's Powder Milk Feeding",
+    				label: "Powder Milk",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -166,7 +166,7 @@
     		labels : [{{ $dailyPlainWaterFeedingTimeSpan }}],
     		datasets : [
     			{
-    				label: "Today's Plain Water Feeding",
+    				label: "Plain Water",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -184,7 +184,7 @@
     		labels : [{{ $lastSixDaysTimeSpan }}],
     		datasets : [
     			{
-    				label: "Last 6 Days Urination",
+    				label: "Urination",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -202,7 +202,7 @@
     		labels : [{{ $lastSixDaysTimeSpan }}],
     		datasets : [
     			{
-    				label: "Last 6 Days Poop",
+    				label: "Poop",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -272,18 +272,21 @@
                         <div class="multipleFeedingGraph">
 	                        @if (!empty($dailyBreastFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls1">
+	                        	<div class="text-center">Today's Breast Milk Feeding</div>
 	                            <canvas id="dailyBreastFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
 	                        
 	                        @if (!empty($dailyPowderMilkFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls2">
+	                        	<div class="text-center">Today's Powder Milk Feeding</div>
 	                            <canvas id="dailyPowderMilkFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
 	                        
 	                        @if (!empty($dailyPlainWaterFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls3">
+	                        	<div class="text-center">Today's Plain Water Feeding</div>
 	                            <canvas id="dailyPlainWaterFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
@@ -380,6 +383,7 @@
                         
                         @if (!empty($lastSixDaysTotalUrinationGraphData))
                         <div id="morris-area-chart">
+                        	<div class="text-center">Last Few Urination</div>
                             <canvas id="lastSixDaysTotalUrinationGraph"></canvas>
                         </div>
                         @endif
@@ -450,6 +454,7 @@
                         
                         @if (!empty($lastSixDaysTotalPoopGraphData))
                         <div id="morris-area-chart">
+                        	<div class="text-center">Last Few Poop</div>
                             <canvas id="lastSixDaysTotalPoopGraph"></canvas>
                         </div>
                         @endif

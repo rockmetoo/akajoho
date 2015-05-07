@@ -17,10 +17,12 @@
         {{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
         {{ HTML::script('/js/jquery.datetimepicker.js', [], true) }}
         {{ HTML::script('/js/Chart.min.js', [], true) }}
+        {{ HTML::script('/js/Chart.Legend.js', [], true) }}
     @else
         {{ HTML::script('/js/jquery-1.11.0.js') }}
         {{ HTML::script('/js/jquery.datetimepicker.js') }}
         {{ HTML::script('/js/Chart.min.js') }}
+        {{ HTML::script('/js/Chart.Legend.js') }}
     @endif
 @stop
 
@@ -49,7 +51,7 @@
     		labels : [{{ $lastFewWeightTimeSpan }}],
     		datasets : [
     			{
-    				label: "Last Few Weight Entries",
+    				label: "Weight",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -67,7 +69,7 @@
     		labels : [{{ $lastFewHeatTimeSpan }}],
     		datasets : [
     			{
-    				label: "Last Few Weight Entries",
+    				label: "Heat",
     				fillColor : "rgba(151,187,205,0.2)",
     				strokeColor : "rgba(151,187,205,1)",
     				pointColor : "rgba(151,187,205,1)",
@@ -83,13 +85,13 @@
     window.onload = function() {
 
     	@if (!empty($lastFewEntriesForWeightGraphData))
-	    	var ctx = document.getElementById("lastSixDaysTotalUrinationGraph").getContext("2d");
-	    	window.myLine = new Chart(ctx).Line(lastSixDaysTotalUrinationGraphData, {responsive: true});
+	    	var ctx = document.getElementById("lastFewEntriesForWeightGraph").getContext("2d");
+	    	window.myLine = new Chart(ctx).Line(lastFewEntriesForWeightGraphData, {responsive: true});
     	@endif
     	
     	@if (!empty($lastFewEntriesForHeatGraphData))
-	    	var ctx = document.getElementById("lastSixDaysTotalPoopGraph").getContext("2d");
-	    	window.myLine = new Chart(ctx).Line(lastSixDaysTotalPoopGraphData, {responsive: true});
+	    	var ctx = document.getElementById("lastFewEntriesForHeatGraph").getContext("2d");
+	    	window.myLine = new Chart(ctx).Line(lastFewEntriesForHeatGraphData, {responsive: true});
     	@endif
     }
     </script>
@@ -100,163 +102,58 @@
 		<br/><br/>
 		<div class="row rowContainer">
 			<div class="col-lg-4">
-				<div class="panel panel-green">
+				<div class="panel panel-orange">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-3">
 								<i class="fa fa-tasks fa-2x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<div class="huge-custom">{{ $totalFeeding }}</div>
-								<div>Feeding Today</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="panel-body">
-                    	@if (null !== Session::get('feedingSuccess'))
-                        <div class="alert alert-success addFeedingSuccess">
-                        	{{ Session::get('feedingSuccess') }}
-                        </div>
-                        @endif
-                        
-                        <div class="multipleFeedingGraph">
-	                        @if (!empty($dailyBreastFeedingGraphData))
-	                        <div id="morris-area-chart" class="cls1">
-	                            <canvas id="dailyBreastFeedingGraph"></canvas>
-	                        </div>
-	                        @endif
-	                        
-	                        @if (!empty($dailyPowderMilkFeedingGraphData))
-	                        <div id="morris-area-chart" class="cls2">
-	                            <canvas id="dailyPowderMilkFeedingGraph"></canvas>
-	                        </div>
-	                        @endif
-	                        
-	                        @if (!empty($dailyPlainWaterFeedingGraphData))
-	                        <div id="morris-area-chart" class="cls3">
-	                            <canvas id="dailyPlainWaterFeedingGraph"></canvas>
-	                        </div>
-	                        @endif
-                        </div>
-						
-						@if (!empty($dailyBreastFeedingGraphData) || !empty($dailyPowderMilkFeedingGraphData) || !empty($dailyPlainWaterFeedingGraphData))
-						<button id="nextFeedingGraph" class="btn btn-outline btn-primary pull-left" type="button">&gt;</button>
-	                    <button id="prevFeedingGraph" class="btn btn-outline btn-primary pull-right" type="button">&lt;</button>
-	                    @endif
-	                    
-						<div class="row hidden addFeedingRow">
-							<form name="feedingForm" action="/feeding/draining" method="post" role="form">
-								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input type="hidden" id="feedingData" name="feedingData" value="1" />
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Diet</label>
-                                        <select class="form-control" name="diet" id="diet">
-                                            @foreach (Config::get('feeding.diets') as $key=>$text)
-                                                <option value="{{ $key }}">{{ $text }}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('diet'))
-                                        <ul class="list_of_error" id="list_of_error_diet">
-                                        	<li id="error_item_diet_default">
-                                        		Please select a diet
-                                        	</li>
-                                        </ul>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Quantity</label>
-                                        <input type="text" class="form-control" name="quantity" value="{{ (Input::old('quantity')) }}" />
-                                        @if ($errors->has('quantity'))
-                                        <ul class="list_of_error" id="list_of_error_quantity">
-                                        	<li id="error_item_quantity_default">
-                                        		Quantity has to be a numeric value
-                                        	</li>
-                                        </ul>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>When</label>
-                                        <input type="text" class="form-control" name="when" id="whenFeeding" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
-                                        @if ($errors->has('when'))
-                                        <ul class="list_of_error" id="list_of_error_when">
-                                        	<li id="error_item_when_default">
-                                        		Enter feeding date and time
-                                        	</li>
-                                        </ul>
-                                        @endif
-                                    </div>
-                                </div>
-								<div class="col-lg-12">
-                                    <button type="submit" class="btn btn-default">Add</button>
-                                </div>
-							</form>
-						</div>
-					</div>
-					
-					<a id="addFeeding" href="#">
-						<div class="panel-footer">
-							<span class="pull-left">Add</span>
-							<span class="pull-right"><i class="fa fa-plus-square"></i></span>
-							<div class="clearfix"></div>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-tasks fa-2x"></i>
-							</div>
-							<div class="col-xs-9 text-right">
-								<div class="huge-custom">{{ $totalUrination }}</div>
-								<div>Urination Today</div>
+								<div class="huge-custom">{{ $lastWeightMesured }}</div>
+								<div>Last Weight Measured</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="panel-body">
-                    	@if (null !== Session::get('urinationSuccess'))
-                        <div class="alert alert-success addUrinationSuccess">
-                        	{{ Session::get('urinationSuccess') }}
+                    	@if (null !== Session::get('weightSuccess'))
+                        <div class="alert alert-success addWeightSuccess">
+                        	{{ Session::get('weightSuccess') }}
                         </div>
                         @endif
                         
-                        @if (!empty($lastSixDaysTotalUrinationGraphData))
+                        @if (!empty($lastFewEntriesForWeightGraphData))
                         <div id="morris-area-chart">
-                            <canvas id="lastSixDaysTotalUrinationGraph"></canvas>
+                        	<div class="text-center">Last Few Weight Measured</div>
+                            <canvas id="lastFewEntriesForWeightGraph"></canvas>
                         </div>
                         @endif
                         
-						<div class="row hidden addUrinationRow">
-							<form name="urinationForm" action="/feeding/draining" method="post" role="form">
+						<div class="row hidden addWeightRow">
+							<form name="weightForm" action="/weight/heat" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input type="hidden" id="urinationData" name="urinationData" value="1" />
+                                <input type="hidden" id="weightData" name="weightData" value="1" />
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Urin Color</label>
-                                        <select class="form-control" name="color" id="color">
-                                            @foreach (Config::get('urination.colors') as $key=>$text)
-                                                <option value="{{ $key }}">{{ $text }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label>Weight</label>
+                                        <input type="text" class="form-control" name="weight" value="{{ (Input::old('weight')) }}" />
+                                        @if ($errors->has('weight'))
+                                        <ul class="list_of_error" id="list_of_error_weight">
+                                        	<li id="error_item_weight_default">
+                                        		Weight has to be a numeric value
+                                        	</li>
+                                        </ul>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>When</label>
-                                        <input type="text" class="form-control" name="when" id="whenUrination" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
+                                        <input type="text" class="form-control" name="when" id="whenWeight" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
                                         @if ($errors->has('when'))
                                         <ul class="list_of_error" id="list_of_error_when">
                                         	<li id="error_item_when_default">
-                                        		Enter urination date and time
+                                        		Enter weight measuring date and time
                                         	</li>
                                         </ul>
                                         @endif
@@ -269,7 +166,7 @@
 						</div>
 					</div>
 					
-					<a id="addUrination" href="#">
+					<a id="addWeight" href="#">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>
@@ -279,64 +176,58 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
-				<div class="panel panel-yellow">
+				<div class="panel panel-red">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-3">
 								<i class="fa fa-tasks fa-2x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<div class="huge-custom">{{ $totalPoop }}</div>
-								<div>Poop Today</div>
+								<div class="huge-custom">{{ $lastHeatMesured }}</div>
+								<div>Last Heat Measured</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="panel-body">
-                    	@if (null !== Session::get('poopSuccess'))
-                        <div class="alert alert-success addPoopSuccess">
-                        	{{ Session::get('poopSuccess') }}
+                    	@if (null !== Session::get('heatSuccess'))
+                        <div class="alert alert-success addHeatSuccess">
+                        	{{ Session::get('heatSuccess') }}
                         </div>
                         @endif
                         
-                        @if (!empty($lastSixDaysTotalPoopGraphData))
+                        @if (!empty($lastFewEntriesForHeatGraphData))
                         <div id="morris-area-chart">
-                            <canvas id="lastSixDaysTotalPoopGraph"></canvas>
+                        	<div class="text-center">Last Few Heats Measured</div>
+                            <canvas id="lastFewEntriesForHeatGraph"></canvas>
                         </div>
                         @endif
-						
-						<div class="row hidden addPoopRow">
-							<form name="poopForm" action="/feeding/draining" method="post" role="form">
+                        
+						<div class="row hidden addHeatRow">
+							<form name="heatForm" action="/weight/heat" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input type="hidden" id="poopData" name="poopData" value="1" />
+                                <input type="hidden" id="heatData" name="heatData" value="1" />
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Poop Color</label>
-                                        <select class="form-control" name="color" id="color">
-                                            @foreach (Config::get('poop.colors') as $key=>$text)
-                                                <option value="{{ $key }}">{{ $text }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Poop Hardness</label>
-                                        <select class="form-control" name="type" id="type">
-                                            @foreach (Config::get('poop.types') as $key=>$text)
-                                                <option value="{{ $key }}">{{ $text }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label>Heat</label>
+                                        <input type="text" class="form-control" name="heat" value="{{ (Input::old('heat')) }}" />
+                                        @if ($errors->has('heat'))
+                                        <ul class="list_of_error" id="list_of_error_heat">
+                                        	<li id="error_item_heat_default">
+                                        		Heat has to be a numeric value
+                                        	</li>
+                                        </ul>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>When</label>
-                                        <input type="text" class="form-control" name="when" id="whenPoop" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
+                                        <input type="text" class="form-control" name="when" id="whenHeat" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
                                         @if ($errors->has('when'))
                                         <ul class="list_of_error" id="list_of_error_when">
                                         	<li id="error_item_when_default">
-                                        		Enter pooping date and time
+                                        		Enter heat measuring date and time
                                         	</li>
                                         </ul>
                                         @endif
@@ -349,7 +240,7 @@
 						</div>
 					</div>
 					
-					<a id="addPoop" href="#">
+					<a id="addHeat" href="#">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>

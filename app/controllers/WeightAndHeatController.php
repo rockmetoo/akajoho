@@ -15,33 +15,30 @@ class WeightAndHeatController extends BaseController
     	$lastFewEntriesForWeight	= WeightAndHeat::getLastFewEntriesForWeight($userId, 12)->get();
     	$lastFewEntriesForHeat		= WeightAndHeat::getLastFewEntriesForHeat($userId, 12)->get();
     	
-    	//$lastWeightMesured			= WeightAndHeat::getLastWeightMesured($userId)->get();
-    	//$lastHeatMesured			= WeightAndHeat::getLastHeatMesured($userId)->get();
+    	$weight						= array();
+    	$heat						= array();
+    	$lastFewWeightTimeSpan		= array();
+    	$lastFewHeatTimeSpan 		= array();
     	
-    	$weight		= array();
-    	$heat		= array();
-    	
-    	foreach ($lastSixEntryForWeight as $oneWeight) {
-    		$weight[$oneWeight->year.'-'.$oneWeight->month.'-'.$oneWeight->day] = $oneWeight->weight;
+    	foreach ($lastFewEntriesForWeight as $oneWeight) {
+    		$weight[]				= $oneWeight->weight;
+    		$lastFewWeightTimeSpan[]= $oneWeight->year.'-'.$oneWeight->month.'-'.$oneWeight->day;
     	}
     	
-    	foreach ($lastSixEntryForHeat as $oneHeat) {
-    		$heat[$oneHeat->year.'-'.$oneHeat->month.'-'.$oneHeat->day] = $oneHeat->heat;
+    	foreach ($lastFewEntriesForHeat as $oneHeat) {
+    		$heat[]					= $oneHeat->heat;
+    		$lastFewHeatTimeSpan[]	= $oneHeat->year.'-'.$oneHeat->month.'-'.$oneHeat->day;
     	}
-    	
-    	// XXX: IMPORTANT - sorted by date
-    	ksort($weight);
-    	ksort($heat);
     	
     	return View::make(
     		'weightandheat.index',
     		[
     			'lastFewEntriesForWeightGraphData'	=> implode(',', $weight),
     			'lastFewEntriesForHeatGraphData'	=> implode(',', $heat),
-    			'lastFewWeightTimeSpan'				=> '"'.implode('","', array_keys($weight)).'"',
-    			'lastFewHeatTimeSpan'				=> '"'.implode('","', array_keys($heat)).'"',
-    			//'lastWeightMesured'					=> count($lastWeightMesured),
-    			//'lastHeatMesured'					=> count($lastHeatMesured)
+    			'lastFewWeightTimeSpan'				=> '"'.implode('","', $lastFewWeightTimeSpan).'"',
+    			'lastFewHeatTimeSpan'				=> '"'.implode('","', $lastFewHeatTimeSpan).'"',
+    			'lastWeightMesured'					=> !empty($weight[0]) ? number_format($weight[0], 2) : 0.0,
+    			'lastHeatMesured'					=> !empty($heat[0]) ? number_format($heat[0], 2) : 0.0
     		]
     	);
     }

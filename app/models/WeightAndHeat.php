@@ -37,7 +37,6 @@ class WeightAndHeat extends Eloquent
     {
     	$res      = $query->selectRaw("DATE_FORMAT(FROM_UNIXTIME(`when`), '%Y') AS year, DATE_FORMAT(FROM_UNIXTIME(`when`), '%m') AS month, DATE_FORMAT(FROM_UNIXTIME(`when`), '%d') AS day, weight")
     	->where('userId', $userId)
-    	->groupBy('day')
     	->orderBy('when', 'DESC')
     	->take($entries);
     
@@ -50,7 +49,6 @@ class WeightAndHeat extends Eloquent
     
     	$res      = $query->selectRaw("DATE_FORMAT(FROM_UNIXTIME(`when`), '%Y') AS year, DATE_FORMAT(FROM_UNIXTIME(`when`), '%m') AS month, DATE_FORMAT(FROM_UNIXTIME(`when`), '%d') AS day, heat")
     	->where('userId', $userId)
-    	->groupBy('day')
     	->orderBy('when', 'DESC')
     	->take($entries);
     
@@ -67,58 +65,38 @@ class WeightAndHeat extends Eloquent
     	return $res;
     }
     
-    public function scopeSaveFeeding($query, $userId, $postData)
+    public function scopeSaveWeight($query, $userId, $postData)
     {
         $now = date('Y-m-d H:i:s');
         
-        $dataForFeeding = array(
-            'userId'    => $userId,
-        	'diet'		=> $postData['diet'],
-        	'quantity'	=> $postData['quantity'],
-        	'when'		=> strtotime($postData['when']),
-        	'createdBy' => $userId,
-        	'updatedBy' => $userId,
-            'dateCreated' => $now,
-            'dateUpdated' => $now
+        $dataForWeight = array(
+            'userId'    	=> $userId,
+        	'weight'		=> $postData['weight'],
+        	'when'			=> strtotime($postData['when']),
+        	'createdBy'		=> $userId,
+        	'updatedBy'		=> $userId,
+            'dateCreated'	=> $now,
+            'dateUpdated'	=> $now
         );
         
-        $query->insert($dataForFeeding);
+        $query->insert($dataForWeight);
     }
     
-    public function scopeSaveUrination($query, $userId, $postData)
+    public function scopeSaveHeat($query, $userId, $postData)
     {
     	$now	= date('Y-m-d H:i:s');
-    	$query	= DB::connection('akazoho')->table('urination');
+    	$query	= DB::connection('akazoho')->table('heat');
     	
-    	$dataForUrination = array(
-    		'userId'    => $userId,
-    		'color'		=> $postData['color'],
-    		'when'		=> strtotime($postData['when']),
-    		'createdBy' => $userId,
-    		'updatedBy' => $userId,
-    		'dateCreated' => $now,
-    		'dateUpdated' => $now
-    	);
-    
-    	$query->insert($dataForUrination);
-    }
-    
-    public function scopeSavePoop($query, $userId, $postData)
-    {
-    	$now	= date('Y-m-d H:i:s');
-    	$query	= DB::connection('akazoho')->table('poop');
-    	 
-    	$dataForPoop = array(
-    		'userId'    => $userId,
-    		'color'		=> $postData['color'],
-    		'type'		=> $postData['type'],
-    		'when'		=> strtotime($postData['when']),
-    		'createdBy' => $userId,
-    		'updatedBy' => $userId,
-    		'dateCreated' => $now,
-    		'dateUpdated' => $now
-    	);
-    
-    	$query->insert($dataForPoop);
+        $dataForHeat = array(
+            'userId'    	=> $userId,
+        	'heat'			=> $postData['heat'],
+        	'when'			=> strtotime($postData['when']),
+        	'createdBy' 	=> $userId,
+        	'updatedBy' 	=> $userId,
+            'dateCreated' 	=> $now,
+            'dateUpdated' 	=> $now
+        );
+        
+        $query->insert($dataForHeat);
     }
 }

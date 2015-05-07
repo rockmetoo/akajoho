@@ -15,7 +15,7 @@ class CreateHeatTable extends Migration {
     	if (!Schema::hasTable('heat')) {
 	        Schema::create('heat', function($t) {
 	            $t->bigInteger('userId')->unsigned()->default(0);
-	            $t->integer('heat')->unsigned()->default(0)->comment('celsius or fahrenheit etc.');
+	            $t->float('heat')->unsigned()->default(0)->comment('celsius or fahrenheit etc.');
 	            $t->integer('when')->unsigned()->nullable();
 	            $t->bigInteger('createdBy')->unsigned()->default(0);
 	            $t->bigInteger('updatedBy')->unsigned()->default(0);

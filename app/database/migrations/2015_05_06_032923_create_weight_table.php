@@ -15,7 +15,7 @@ class CreateWeightTable extends Migration {
     	if (!Schema::hasTable('weight')) {
 	        Schema::create('weight', function($t) {
 	            $t->bigInteger('userId')->unsigned()->default(0);
-	            $t->integer('weight')->unsigned()->default(0)->comment('kg or gm or pound etc.');
+	            $t->float('weight')->unsigned()->default(0)->comment('kg or gm or pound etc.');
 	            $t->integer('when')->unsigned()->nullable();
 	            $t->bigInteger('createdBy')->unsigned()->default(0);
 	            $t->bigInteger('updatedBy')->unsigned()->default(0);
