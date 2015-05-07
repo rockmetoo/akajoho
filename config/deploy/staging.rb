@@ -8,7 +8,7 @@ role :web, %w{52.68.204.24}
 set :user, "ec2-user"
 set :branch, 'master'
 
-set :composer_install_flags, '--dev --prefer-dist'
+set :composer_install_flags, '--prefer-source --no-interaction'
 
 server '52.68.204.24:22', user: 'ec2-user', roles: %w[app web db],
     ssh_options: {
