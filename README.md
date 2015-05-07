@@ -48,7 +48,6 @@ Run a webserver at default 8000 port. Ctrl+C to stop it
 ## Install Capistrano
 
     gem install capistrano
-    gem install hipchat
     gem install capistrano-composer
 
 ## Update Library/Version
