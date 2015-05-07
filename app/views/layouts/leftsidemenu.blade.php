@@ -10,7 +10,7 @@
             <a href="/weight/heat" @if (Route::getCurrentRoute()->getPath() == 'weight/heat') class="active" @endif><i class="fa lesson-icon fa-fw"></i>&nbsp;&nbsp;Weight & Heat</a>
         </li>
         <li>
-            <a href="/play/place" @if (Route::getCurrentRoute()->getPath() == 'play/place') class="active" @endif><i class="fa lesson-icon fa-fw"></i>&nbsp;&nbsp;Play & Place</a>
+            <a href="/place/play" @if (Route::getCurrentRoute()->getPath() == 'place/play') class="active" @endif><i class="fa lesson-icon fa-fw"></i>&nbsp;&nbsp;Place & Play</a>
         </li>
         <li>
             <a href="/shop/store" @if (Route::getCurrentRoute()->getPath() == 'shop/store') class="active" @endif><i class="fa lesson-icon fa-fw"></i>&nbsp;&nbsp;Shop & Store</a>
