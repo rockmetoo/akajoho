@@ -5,8 +5,7 @@ namespace :deploy do
             execute :sudo, :chmod, '-R 0777', current_path.join('app/storage')
             execute :sudo, :chown, '-R nginx:nginx', current_path.join('app/storage');
             execute :sudo, :chown, '-R nginx:nginx', current_path.join('app/storage/meta');
-            execute :sudo, :chown, '-R nginx:nginx', current_path.join('public/uploadFiles/realProfilePic');
-            execute :sudo, :chown, '-R nginx:nginx', current_path.join('public/uploadFiles/tmpProfilePic');
+            execute :sudo, :chown, '-R nginx:nginx', current_path.join('public/uploadFiles');
         end
     end
 
