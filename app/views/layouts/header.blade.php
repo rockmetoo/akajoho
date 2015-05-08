@@ -7,12 +7,10 @@
 <!-- Custom Font -->
 {{ HTML::style('/css/font-awesome.min.css'); }}
 
-@if (Agent::isMobile() || Agent::isTablet())
-	{{ HTML::style('/css/plugins/metisMenu/metisMenu.min.css'); }}
+{{ HTML::style('/css/plugins/metisMenu/metisMenu.min.css'); }}
 
-	{{ HTML::script('/js/bootstrap.min.js') }}
-	{{ HTML::script('/js/metisMenu.min.js') }}
-	{{ HTML::script('/js/sbadmin.js') }}
-@endif
+{{ HTML::script('/js/bootstrap.min.js') }}
+{{ HTML::script('/js/metisMenu.min.js') }}
+{{ HTML::script('/js/sbadmin.js') }}
 
 

@@ -9,16 +9,17 @@
 
         <title>Akajoho - enjoy with your akachan</title>
 
+        @yield('internalCSSLibrary')
+
+        @yield('internalJSLibrary')
+        @yield('internalJSCode')
+        
         @if (App::environment('production'))
           @include('layouts.productionHeader')
         @else
           @include('layouts.header')
         @endif
 
-        @yield('internalCSSLibrary')
-
-        @yield('internalJSLibrary')
-        @yield('internalJSCode')
     </head>
     <body>
         <div id="wrapper">
