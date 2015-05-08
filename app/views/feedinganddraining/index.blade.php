@@ -14,9 +14,11 @@
 
 @section('internalJSLibrary')
     @if (App::environment('production'))
+    	{{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
         {{ HTML::script('/js/jquery.datetimepicker.js', [], true) }}
         {{ HTML::script('/js/Chart.min.js', [], true) }}
     @else
+    	{{ HTML::script('/js/jquery-1.11.0.js') }}
         {{ HTML::script('/js/jquery.datetimepicker.js') }}
         {{ HTML::script('/js/Chart.min.js') }}
     @endif

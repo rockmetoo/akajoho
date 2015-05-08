@@ -56,9 +56,4 @@
             @yield('content')
         </div>
     </body>
-@if (App::environment('production'))
-    @include('elements.productionjs')
-@else
-    @include('elements.js')
-@endif
 </html>
