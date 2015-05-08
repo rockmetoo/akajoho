@@ -5,6 +5,11 @@
 @include('layouts.leftSideUserBlock')
 
 @section('internalJSLibrary')
+    @if (App::environment('production'))
+    	{{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
+    @else
+    	{{ HTML::script('/js/jquery-1.11.0.js') }}
+    @endif
 @stop
 
 @section('internalJSCode')
