@@ -10,7 +10,8 @@
         "bugsnag/bugsnag-laravel": "dev-master",
         "illuminate/support": "4.2.*",
         "jenssegers/agent": "*",
-        "pda/pheanstalk": "2.0.0"
+        "pda/pheanstalk": "2.0.0",
+        "intervention/image": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*@dev",

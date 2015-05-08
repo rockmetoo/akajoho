@@ -122,7 +122,8 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Jenssegers\Agent\AgentServiceProvider',
-        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider'
+        'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
+    	'Intervention\Image\ImageServiceProvider'
     ),
 
     /*
@@ -190,7 +191,8 @@ return array(
         'Validator'       => 'Illuminate\Support\Facades\Validator',
         'View'            => 'Illuminate\Support\Facades\View',
         'Agent'           => 'Jenssegers\Agent\Facades\Agent',
-        'Bugsnag'         => 'Bugsnag\BugsnagLaravel\BugsnagFacade'
+        'Bugsnag'         => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
+    	'Image' => 'Intervention\Image\Facades\Image'
     ),
 
 );
