@@ -7,6 +7,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Akajoho - Signin</title>
+        
+        @yield('internalCSSLibrary')
+
+        @yield('internalJSLibrary')
+        @yield('internalJSCode')
+        
         @if (App::environment('production'))
             @include('layouts.productionHeader')
         @else
@@ -15,7 +21,7 @@
     </head>
     <body>
         <div id="wrapper">
-            <header class="navbar navbar-fixed-top bg-white" style="border-bottom: 1px solid #cccccc">
+        	<nav class="navbar navbar-default navbar-fixed-top bg-white" role="navigation" style="margin-bottom: 0;border-bottom: 1px solid #cccccc">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -29,7 +35,7 @@
                         </a>
                     </div>
                     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav pull-right">
                             <li>
                                 <a href="/signup" class="top-link">Signup</a>
                             </li>
@@ -39,7 +45,7 @@
                         </ul>
                     </nav>
                 </div>
-            </header>
+            </nav>
             @yield('content')
             @yield('footer')
         </div>

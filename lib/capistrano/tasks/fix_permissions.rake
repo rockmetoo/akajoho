@@ -3,10 +3,10 @@ namespace :deploy do
     task :fix_permissions do
         on release_roles :all do
             execute :sudo, :chmod, '-R 0777', current_path.join('app/storage')
-            execute :sudo, :chown, '-R nginx:nginx', current_path.join('app/storage');
-            execute :sudo, :chown, '-R nginx:nginx', current_path.join('app/storage/meta');
-            execute :sudo, :chown, 'nginx:nginx', current_path.join('app/storage/meta/services.json');
-            execute :sudo, :chown, '-R nginx:nginx', current_path.join('public/uploadFiles');
+            execute :sudo, :chown, '-R nginx.nginx', current_path.join('app/storage');
+            execute :sudo, :chown, '-R nginx.nginx', current_path.join('app/storage/meta');
+            #execute :sudo, :chown, 'nginx:nginx', current_path.join('app/storage/meta/services.json');
+            execute :sudo, :chown, '-R nginx.nginx', current_path.join('public/uploadFiles');
         end
     end
 
