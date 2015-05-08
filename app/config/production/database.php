@@ -24,7 +24,7 @@ return array(
         
         'akazoho' => array(
             'driver'    => 'mysql',
-            'host'      => '',
+            'host'      => 'localhost',
             'database'  => 'akazoho',
             'username'  => 'root',
             'password'  => '!getFUCK#&urSelF!',
@@ -34,7 +34,7 @@ return array(
         ),
         'akazohoUsers' => array(
             'driver'    => 'mysql',
-            'host'      => '',
+            'host'      => 'localhost',
             'database'  => 'akazohoUsers',
             'username'  => 'root',
             'password'  => '!getFUCK#&urSelF!',

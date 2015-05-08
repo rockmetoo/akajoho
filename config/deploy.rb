@@ -49,7 +49,8 @@ namespace :deploy do
     after :finishing, 'deploy:fix_permissions'
     after :finishing, 'laravel:optimize'
     
-    after :finishing, 'nginx:reload'
+    # nginx is run by supervisord
+    #after :finishing, 'nginx:reload'
     after :finishing, 'php_fpm:restart'
 end
 
