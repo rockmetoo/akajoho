@@ -27,8 +27,8 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(
     array(
         'local'      => array('localhost', 'local.*'),
-        'staging'    => array('stage.akazoho.com'),
-        'production' => array('akazoho.com')
+        'staging'    => array('staging'),
+        'production' => array('production')
 ));
 
 /*
