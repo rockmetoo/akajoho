@@ -1,19 +1,18 @@
 @extends('layouts.indexHeader')
 
+@section('internalJSLibrary')
+    @if (App::environment('production'))
+    	{{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
+    @else
+    	{{ HTML::script('/js/jquery-1.11.0.js') }}
+    @endif
+@stop
+
 @section('content')
     <div id="landing-content">
         <div class="bg-white">
-            <div id="contact" class="text-center content-padding">
-                <div class="container">
-                    <div class="row" style="margin-top: 5%;">
-	                    <form name="searchForm" class="form-inline content-padding" method="post" action="/search">
-							<div class="form-group input-group col-lg-4">
-								<input name="search" class="form-control" type="text" placeholder="">
-							</div>
-	                        <button class="btn btn-info" type="submit" name="submit">Search</button>
-	                    </form>
-	                </div>
-                    <br/>
+            <div class="text-center content-padding">
+                <div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-12">
 							<h3 class="item-header">Recent Items</h1>
@@ -21,7 +20,7 @@
 					</div>
                     @for ($i = 0; $i < 4; $i++)
                     <div class="row">
-                    	@for ($j = 0; $j < 4; $j++)
+                    	@for ($j = 0; $j < 1; $j++)
 		            	<div class="col-lg-3 col-md-6">
 		                    <div class="panel panel-primary">
 		                        <div class="panel-heading">
@@ -54,7 +53,7 @@
 					</div>
                     @for ($i = 0; $i < 4; $i++)
                     <div class="row">
-                    	@for ($j = 0; $j < 4; $j++)
+                    	@for ($j = 0; $j < 1; $j++)
 		            	<div class="col-lg-3 col-md-6">
 		                    <div class="panel panel-primary">
 		                        <div class="panel-heading">
@@ -88,7 +87,7 @@
 
 @section('footer')
     <footer>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 padding-md">
                     <p class="font-lg text-danger">Information</p>

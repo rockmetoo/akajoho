@@ -7,6 +7,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Akajoho - enjoy with your akachan</title>
+        
+		@yield('internalCSSLibrary')
+
+        @yield('internalJSLibrary')
+        @yield('internalJSCode')
+        
         @if (App::environment('production'))
         	@include('layouts.productionHeader')
         @else
