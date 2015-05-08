@@ -20,12 +20,10 @@
 
 @section('internalJSLibrary')
     @if (App::environment('production'))
-        {{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
         {{ HTML::script('/js/jquery.datetimepicker.js', [], true) }}
         {{ HTML::script('/js/alertify.min.js', [], true) }}
         {{ HTML::script('/js/jquery.Jcrop.js', [], true) }}
     @else
-        {{ HTML::script('/js/jquery-1.11.0.js') }}
         {{ HTML::script('/js/jquery.datetimepicker.js') }}
         {{ HTML::script('/js/alertify.min.js') }}
         {{ HTML::script('/js/jquery.Jcrop.js') }}

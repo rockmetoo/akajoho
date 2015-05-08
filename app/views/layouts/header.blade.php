@@ -1,12 +1,18 @@
 <!-- Bootstrap Core CSS -->
 {{ HTML::style('/css/bootstrap.min.css'); }}
-<!-- MetisMenu CSS -->
-{{ HTML::style('/css/plugins/metisMenu/metisMenu.min.css'); }}
 <!-- Timeline CSS -->
 {{ HTML::style('/css/plugins/timeline.css'); }}
 <!-- Custom CSS -->
 {{ HTML::style('/css/sbadmin.css'); }}
-<!-- Morris Charts CSS -->
-{{ HTML::style('/css/plugins/morris.css'); }}
-<!-- Custom Fons -->
+<!-- Custom Font -->
 {{ HTML::style('/css/font-awesome.min.css'); }}
+
+@if (Agent::isMobile() || Agent::isTablet())
+	{{ HTML::style('/css/plugins/metisMenu/metisMenu.min.css'); }}
+
+	{{ HTML::script('/js/bootstrap.min.js') }}
+	{{ HTML::script('/js/metisMenu.min.js') }}
+	{{ HTML::script('/js/sbadmin.js') }}
+@endif
+
+

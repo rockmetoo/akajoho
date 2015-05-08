@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Akazoho - enjoy with your akachan</title>
+        <title>Akajoho - enjoy with your akachan</title>
 
         @if (App::environment('production'))
           @include('layouts.productionHeader')
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="/" class="navbar-brand">
-                        <span class="header-title-text">Akazoho</span>
+                        <span class="header-title-text">Akajoho</span>
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
