@@ -110,13 +110,19 @@ class AlohaController extends BaseController
                 if (App::environment('production')) {
                     $data = array(
                         'email' => $postData['email'],
-                        'confirmationLink' => 'https://akazoho.com/signup/verify?c='.$code,
+                        'confirmationLink' => 'https://akajoho.com/signup/verify?c='.$code,
                     );
                     $mailSubject = 'Akazoho - Verify your email address';
+                } else if (App::environment('staging')) {
+                    $data = array(
+                        'email' => $postData['email'],
+                        'confirmationLink' => 'http://staging.akajoho.com/signup/verify?c='.$code,
+                    );
+                    $mailSubject = 'DEVELOPMENT: Akazoho - Verify your email address';
                 } else {
                     $data = array(
                         'email' => $postData['email'],
-                        'confirmationLink' => 'http://local.akazoho.com/signup/verify?c='.$code,
+                        'confirmationLink' => 'http://local.akajoho.com/signup/verify?c='.$code,
                     );
                     $mailSubject = 'DEVELOPMENT: Akazoho - Verify your email address';
                 }
