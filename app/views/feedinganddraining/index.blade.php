@@ -276,21 +276,21 @@
                         <div class="multipleFeedingGraph">
 	                        @if (!empty($dailyBreastFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls1">
-	                        	<div class="text-center">Today's Breast Milk Feeding</div>
+	                        	<p class="text-center" style="margin: 0px">Today's Breast Milk Feeding</p>
 	                            <canvas id="dailyBreastFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
 	                        
 	                        @if (!empty($dailyPowderMilkFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls2">
-	                        	<div class="text-center">Today's Powder Milk Feeding</div>
+	                        	<p class="text-center" style="margin: 0px">Today's Powder Milk Feeding</p>
 	                            <canvas id="dailyPowderMilkFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
 	                        
 	                        @if (!empty($dailyPlainWaterFeedingGraphData))
 	                        <div id="morris-area-chart" class="cls3">
-	                        	<div class="text-center">Today's Plain Water Feeding</div>
+	                        	<p class="text-center" style="margin: 0px">Today's Plain Water Feeding</p>
 	                            <canvas id="dailyPlainWaterFeedingGraph"></canvas>
 	                        </div>
 	                        @endif
