@@ -170,7 +170,7 @@
 						</div>
 					</div>
 					
-					<a id="addWeight" href="#">
+					<a id="addWeight" href="#addWeight" onclick="return false;">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>
@@ -244,7 +244,7 @@
 						</div>
 					</div>
 					
-					<a id="addHeat" href="#">
+					<a id="addHeat" href="#addHeat" onclick="return false;">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>

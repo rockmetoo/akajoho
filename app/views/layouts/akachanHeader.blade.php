@@ -24,35 +24,41 @@
     <body>
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-fixed-top bg-white" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand">
-                        <span class="header-title-text">Akajoho</span>
-                    </a>
-                </div>
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a class="dropdown-toggle" href="/profile">{{ Auth::user()->email }}</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-toggle" href="/signout">Signout</a>
-                    </li>
-                </ul>
-                <div class="navbar-default sidebar" role="navigation" style="width:194px;position:fixed">
-                    <div class="sidebar-nav navbar-collapse">
-                        <div class="user-block clearfix">
-                            @yield('leftSideUserBlock')
-                        </div>
-                        <ul class="nav" id="side-menu" style="width:100%">
-                            @yield('leftSideMenu')
-                        </ul>
-                    </div>
-                </div>
+	        	<div class="container-fluid">
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                        <span class="sr-only">Toggle navigation</span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	                    <a href="/" class="navbar-brand">
+	                        <span class="header-title-text">Akajoho</span>
+	                    </a>
+	                </div>
+	                
+	                @if (!Agent::isMobile() && !Agent::isTablet())
+	                <ul class="nav navbar-top-links pull-right">
+	                    <li>
+	                        <a class="dropdown-toggle" href="/profile">{{ Auth::user()->email }}</a>
+	                    </li>
+	                    <li>
+	                        <a class="dropdown-toggle" href="/signout">Signout</a>
+	                    </li>
+	                </ul>
+	                @endif
+
+	                <div class="navbar-default sidebar" role="navigation" style="width:194px;position:fixed">
+	                    <div class="sidebar-nav navbar-collapse">
+	                        <div class="user-block clearfix">
+	                            @yield('leftSideUserBlock')
+	                        </div>
+	                        <ul class="nav" id="side-menu" style="width:100%">
+	                            @yield('leftSideMenu')
+	                        </ul>
+	                    </div>
+	                </div>
+	        	</div>
             </nav>
             @yield('content')
         </div>

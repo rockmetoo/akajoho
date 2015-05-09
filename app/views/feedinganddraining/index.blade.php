@@ -355,7 +355,7 @@
 						</div>
 					</div>
 					
-					<a id="addFeeding" href="#">
+					<a id="addFeeding" href="#addFeeding" onclick="return false;">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>
@@ -426,7 +426,7 @@
 						</div>
 					</div>
 					
-					<a id="addUrination" href="#">
+					<a id="addUrination" href="#addUrination" onclick="return false;">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>
@@ -514,7 +514,7 @@
 						</div>
 					</div>
 					
-					<a id="addPoop" href="#">
+					<a id="addPoop" href="#addPoop" onclick="return false;">
 						<div class="panel-footer">
 							<span class="pull-left">Add</span>
 							<span class="pull-right"><i class="fa fa-plus-square"></i></span>

@@ -68,7 +68,12 @@ Run a webserver at default 8000 port. Ctrl+C to stop it
     cd PATH/TO/root_dir
     npm install
     grunt cssmin
-    
+
+## Server JST Date Setting
+
+	[AWS]
+	cp /usr/share/zoneinfo/Japan /etc/localtime
+
 ## Some Good GIT Command To Keep In Mind
 
     git status
