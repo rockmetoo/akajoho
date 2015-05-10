@@ -26,7 +26,7 @@ return array(
     |
     */
 
-    'url' => 'http://akazoho.app',
+    'url' => 'http://akajoho.app',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------
@@ -192,7 +192,7 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
         'Agent'           => 'Jenssegers\Agent\Facades\Agent',
         'Bugsnag'         => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
-    	'Image' => 'Intervention\Image\Facades\Image'
+    	'Image'			  => 'Intervention\Image\Facades\Image'
     ),
 
 );

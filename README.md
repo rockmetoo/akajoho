@@ -73,6 +73,11 @@ Run a webserver at default 8000 port. Ctrl+C to stop it
 
 	[AWS]
 	cp /usr/share/zoneinfo/Japan /etc/localtime
+	
+	vi /etc/php.ini
+	;date.timezone = → date.timezone = Asia/Tokyo
+	
+	restart
 
 ## Some Good GIT Command To Keep In Mind
 

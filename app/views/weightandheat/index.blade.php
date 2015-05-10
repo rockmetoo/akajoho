@@ -103,7 +103,12 @@
 
 @section('content')
 	<div id="page-wrapper">
-		<br/><br/>
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Panels and Wells</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
 		<div class="row rowContainer">
 			<div class="col-lg-4">
 				<div class="panel panel-orange">
@@ -121,7 +126,7 @@
 
 					<div class="panel-body">
                     	@if (null !== Session::get('weightSuccess'))
-                        <div class="alert alert-success addWeightSuccess">
+                        <div class="alert alert-success addWeightSuccess" id="#weightSuccess">
                         	{{ Session::get('weightSuccess') }}
                         </div>
                         @endif
@@ -134,13 +139,13 @@
                         @endif
                         
 						<div class="row hidden addWeightRow">
-							<form name="weightForm" action="/weight/heat" method="post" role="form">
+							<form name="weightForm" action="/weight/heat#weightSuccess" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" id="weightData" name="weightData" value="1" />
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Weight</label>
-                                        <input type="text" class="form-control" name="weight" value="{{ (Input::old('weight')) }}" />
+                                        <input type="number" class="form-control" name="weight" value="{{ (Input::old('weight')) }}" />
                                         @if ($errors->has('weight'))
                                         <ul class="list_of_error" id="list_of_error_weight">
                                         	<li id="error_item_weight_default">
@@ -164,7 +169,7 @@
                                     </div>
                                 </div>
 								<div class="col-lg-12">
-                                    <button type="submit" class="btn btn-default">Add</button>
+                                    <button type="submit" class="btn btn-default">Save</button>
                                 </div>
 							</form>
 						</div>
@@ -195,7 +200,7 @@
 
 					<div class="panel-body">
                     	@if (null !== Session::get('heatSuccess'))
-                        <div class="alert alert-success addHeatSuccess">
+                        <div class="alert alert-success addHeatSuccess" id="heatSuccess">
                         	{{ Session::get('heatSuccess') }}
                         </div>
                         @endif
@@ -208,7 +213,7 @@
                         @endif
                         
 						<div class="row hidden addHeatRow">
-							<form name="heatForm" action="/weight/heat" method="post" role="form">
+							<form name="heatForm" action="/weight/heat#heatSuccess" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" id="heatData" name="heatData" value="1" />
                                 <div class="col-lg-12">
@@ -227,7 +232,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>When</label>
-                                        <input type="text" class="form-control" name="when" id="whenHeat" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
+                                        <input type="number" class="form-control" name="when" id="whenHeat" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
                                         @if ($errors->has('when'))
                                         <ul class="list_of_error" id="list_of_error_when">
                                         	<li id="error_item_when_default">
@@ -238,7 +243,7 @@
                                     </div>
                                 </div>
 								<div class="col-lg-12">
-                                    <button type="submit" class="btn btn-default">Add</button>
+                                    <button type="submit" class="btn btn-default">Save</button>
                                 </div>
 							</form>
 						</div>

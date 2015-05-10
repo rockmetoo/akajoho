@@ -22,20 +22,21 @@
     <body>
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-fixed-top bg-white" role="navigation" style="margin-bottom: 0;border-bottom: 1px solid #cccccc">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="/" class="navbar-brand">
-                            <span class="header-title-text">Akajoho</span>
-                        </a>
-                    </div>
-                    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                        <ul class="nav navbar-nav pull-right">
+            	<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    	<span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/" class="navbar-brand">
+						<span class="header-title-text">Akajoho</span>
+					</a>
+				</div>
+
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse collapse">
+						<ul class="nav" id="side-menu">
                             <li>
                                 <a href="/signin" class="top-link">Signin</a>
                             </li>
@@ -45,9 +46,9 @@
                             <li>
                                 <a href="/features" class="top-link">Subscribe</a>
                             </li>
-                        </ul>
-                    </nav>
-                </div>
+						</ul>
+					</div>
+				</div>
             </nav>
             @yield('content')
             @yield('footer')

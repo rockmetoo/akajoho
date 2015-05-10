@@ -18,9 +18,7 @@
 							<h3 class="item-header">Recent Items</h1>
 						</div>
 					</div>
-                    @for ($i = 0; $i < 4; $i++)
                     <div class="row">
-                    	@for ($j = 0; $j < 1; $j++)
 		            	<div class="col-lg-3 col-md-6">
 		                    <div class="panel panel-primary">
 		                        <div class="panel-heading">
@@ -43,17 +41,15 @@
 		                        </a>
 		                    </div>
 						</div>
-						@endfor
 					</div>
-					@endfor
+
 					<div class="row">
 						<div class="col-lg-12">
 							<h3 class="item-header">Hot Items</h1>
 						</div>
 					</div>
-                    @for ($i = 0; $i < 4; $i++)
+
                     <div class="row">
-                    	@for ($j = 0; $j < 1; $j++)
 		            	<div class="col-lg-3 col-md-6">
 		                    <div class="panel panel-primary">
 		                        <div class="panel-heading">
@@ -76,9 +72,7 @@
 		                        </a>
 		                    </div>
 						</div>
-						@endfor
 					</div>
-					@endfor
                 </div>
             </div>
         </div>

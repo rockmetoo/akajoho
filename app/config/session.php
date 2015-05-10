@@ -96,7 +96,7 @@ return array(
     |
     */
 
-    'cookie' => 'akazoho_session',
+    'cookie' => 'akajoho_session',
 
     /*
     |--------------------------------------------------------------------------

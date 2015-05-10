@@ -2,7 +2,7 @@
 
 @include('layouts.leftsidemenu')
 
-@include('layouts.leftSideUserBlock')
+
 
 @section('internalCSSLibrary')
     @if (App::environment('production'))
@@ -250,7 +250,6 @@
 
 @section('content')
 	<div id="page-wrapper">
-		<br/><br/>
 		<div class="row rowContainer">
 			<div class="col-lg-4">
 				<div class="panel panel-green">
@@ -268,7 +267,7 @@
 					
 					<div class="panel-body">
                     	@if (null !== Session::get('feedingSuccess'))
-                        <div class="alert alert-success addFeedingSuccess">
+                        <div class="alert alert-success addFeedingSuccess" id="feedingMessage">
                         	{{ Session::get('feedingSuccess') }}
                         </div>
                         @endif
@@ -302,7 +301,7 @@
 	                    @endif
 	                    
 						<div class="row hidden addFeedingRow">
-							<form name="feedingForm" action="/feeding/draining" method="post" role="form">
+							<form name="feedingForm" action="/feeding/draining#feedingMessage" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" id="feedingData" name="feedingData" value="1" />
                                 <div class="col-lg-12">
@@ -325,7 +324,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Quantity</label>
-                                        <input type="text" class="form-control" name="quantity" value="{{ (Input::old('quantity')) }}" />
+                                        <input type="number" class="form-control" name="quantity" value="{{ (Input::old('quantity')) }}" />
                                         @if ($errors->has('quantity'))
                                         <ul class="list_of_error" id="list_of_error_quantity">
                                         	<li id="error_item_quantity_default">
@@ -349,7 +348,7 @@
                                     </div>
                                 </div>
 								<div class="col-lg-12">
-                                    <button type="submit" class="btn btn-default">Add</button>
+                                    <button type="submit" class="btn btn-default">Save</button>
                                 </div>
 							</form>
 						</div>
@@ -380,7 +379,7 @@
 
 					<div class="panel-body">
                     	@if (null !== Session::get('urinationSuccess'))
-                        <div class="alert alert-success addUrinationSuccess">
+                        <div class="alert alert-success addUrinationSuccess" id="urinationMessage">
                         	{{ Session::get('urinationSuccess') }}
                         </div>
                         @endif
@@ -393,7 +392,7 @@
                         @endif
                         
 						<div class="row hidden addUrinationRow">
-							<form name="urinationForm" action="/feeding/draining" method="post" role="form">
+							<form name="urinationForm" action="/feeding/draining#urinationMessage" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" id="urinationData" name="urinationData" value="1" />
                                 <div class="col-lg-12">
@@ -420,7 +419,7 @@
                                     </div>
                                 </div>
 								<div class="col-lg-12">
-                                    <button type="submit" class="btn btn-default">Add</button>
+                                    <button type="submit" class="btn btn-default">Save</button>
                                 </div>
 							</form>
 						</div>
@@ -451,7 +450,7 @@
 					
 					<div class="panel-body">
                     	@if (null !== Session::get('poopSuccess'))
-                        <div class="alert alert-success addPoopSuccess">
+                        <div class="alert alert-success addPoopSuccess" id="poopMessage">
                         	{{ Session::get('poopSuccess') }}
                         </div>
                         @endif
@@ -464,7 +463,7 @@
                         @endif
 						
 						<div class="row hidden addPoopRow">
-							<form name="poopForm" action="/feeding/draining" method="post" role="form">
+							<form name="poopForm" action="/feeding/draining#poopMessage" method="post" role="form">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input type="hidden" id="poopData" name="poopData" value="1" />
                                 <div class="col-lg-12">
@@ -500,8 +499,8 @@
                                         @endif
                                     </div>
                                 </div>
-								<div class="col-lg-2">
-                                    <button type="submit" class="btn btn-default">Add</button>
+								<div class="col-lg-3">
+                                    <button type="submit" class="btn btn-default">Save</button>
                                 </div>
 								<div class="col-lg-6">
 									<div class="checkbox">
