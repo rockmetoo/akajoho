@@ -103,12 +103,6 @@
 
 @section('content')
 	<div id="page-wrapper">
-			<div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Panels and Wells</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
 		<div class="row rowContainer">
 			<div class="col-lg-4">
 				<div class="panel panel-orange">
@@ -219,7 +213,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Heat</label>
-                                        <input type="text" class="form-control" name="heat" value="{{ (Input::old('heat')) }}" />
+                                        <input type="number" class="form-control" name="heat" value="{{ (Input::old('heat')) }}" />
                                         @if ($errors->has('heat'))
                                         <ul class="list_of_error" id="list_of_error_heat">
                                         	<li id="error_item_heat_default">
@@ -232,7 +226,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>When</label>
-                                        <input type="number" class="form-control" name="when" id="whenHeat" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
+                                        <input type="text" class="form-control" name="when" id="whenHeat" value="{{ (Input::old('when')) ? Input::old('when') : date('Y-m-d H:i') }}" />
                                         @if ($errors->has('when'))
                                         <ul class="list_of_error" id="list_of_error_when">
                                         	<li id="error_item_when_default">
