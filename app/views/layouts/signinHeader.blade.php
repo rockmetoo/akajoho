@@ -35,18 +35,14 @@
                         </a>
                     </div>
 					
-					<div class="navbar-default sidebar" role="navigation">
-						<div class="sidebar-nav navbar-collapse collapse">
-	                        <ul class="nav" id="side-menu">
-	                            <li>
-	                                <a href="/signup" class="top-link">Signup</a>
-	                            </li>
-	                            <li>
-	                                <a href="/subscribe" class="top-link">Subscribe</a>
-	                            </li>
-	                        </ul>
-						</div>
-                    </div>
+	                <ul class="nav navbar-top-links navbar-right navbar-collapse collapse">
+						<li>
+							<a href="/signup" class="top-link">Signup</a>
+						</li>
+						<li>
+							<a href="/subscribe" class="top-link">Subscribe</a>
+						</li>
+	                </ul>
                 </div>
             </nav>
             @yield('content')
