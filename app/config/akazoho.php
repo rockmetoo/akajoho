@@ -5,8 +5,8 @@
 	        'ttl' => 1800,
 	    ),
 	    'mail' => array(
-	    	'contact' => 'akazoho@gmail.com',
-	    	'noreply' => 'akazoho@gmail.com',
-	    	'support' => 'akazoho@gmail.com'
+	    	'contact' => 'akajoho@gmail.com',
+	    	'noreply' => 'akajoho@gmail.com',
+	    	'support' => 'akajoho@gmail.com'
 	    )
 	];

@@ -65,9 +65,8 @@
                 </div>
                 <div class="col-sm-3 padding-md">
                     <p class="font-lg text-danger">Stay Connect</p>
-                    <a data-toggle="tooltip" data-original-title="facebook" style="cursor:pointer"><i class="fa fa-facebook"></i></a>
-                    <a class="btn btn-social-icon btn-twitter" data-toggle="tooltip" data-original-title="twitter"><i class="fa fa-twitter"></i></a>
-                    <a data-toggle="tooltip" data-original-title="email us"  style="cursor:pointer"><i class="fa fa-envelope fa-fw"></i></a>
+                    <a href="https://www.facebook.com/rockmetoo" data-toggle="tooltip" data-original-title="facebook" style="cursor:pointer" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="/subscribe" class="btn" data-toggle="tooltip" data-original-title="email us"  style="cursor:pointer"><i class="fa fa-envelope fa-fw">&nbsp;Subscribe</i></a>
                 </div>
             </div>
         </div>
