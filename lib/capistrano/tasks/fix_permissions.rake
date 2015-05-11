@@ -14,6 +14,7 @@ namespace :deploy do
     task :fix_cleanup do
         on release_roles :all do
             execute :sudo, :chown, '-R ec2-user:ec2-user', releases_path
+            execute :sudo, :chown, 'ec2-user:ec2-user', deploy_to
         end
     end
 end

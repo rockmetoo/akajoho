@@ -20,6 +20,11 @@ The Laravel framework has a few system requirements:
 
 You may need to grant the web server write permissions to the app/storage directories
 
+## Install Composer
+    
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+    
 ## Quick Start
 
 Install packages for the first time
