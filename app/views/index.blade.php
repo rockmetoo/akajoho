@@ -52,7 +52,6 @@
                     <p class="font-lg text-danger">Information</p>
                     <ul class="list-unstyled useful-link">
                         <li><a href="/about"><small>About Us</small></a></li>
-                        <li><a href="/delivery/information"><small>Delivery Information</small></a></li>
                         <li><a href="/privacy"><small>Privacy Policy</small></a></li>
                         <li><a href="/terms"><small>Terms & Conditions</small></a></li>
                     </ul>
@@ -60,28 +59,15 @@
                 <div class="col-sm-3 padding-md">
                     <p class="font-lg text-danger">Useful Links</p>
                     <ul class="list-unstyled useful-link">
-                        <li><a href="/contact"><small>Contact Us</small></a></li>
                         <li><a href="/sitemap"><small>Site Map</small></a></li>
                         <li><a href="/affiliates"><small>Affiliates</small></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 padding-md">
                     <p class="font-lg text-danger">Stay Connect</p>
-                    <a href="#" class="social-connect tooltip-test facebook-hover pull-left m-right-xs" data-toggle="tooltip" data-original-title="Facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="#" class="social-connect tooltip-test twitter-hover pull-left m-right-xs" data-toggle="tooltip" data-original-title="Twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </div>
-                <div class="col-sm-3 padding-md">
-                    <p class="font-lg text-danger">Contact Us</p>
-                    Email : {{Config::get('akazoho.mail.contact')}}
-                    <div class="seperator"></div>
-                    <a class="btn btn-info">
-                        <i class="fa fa-envelope"></i>
-                        Contact support
-                    </a>
+                    <a data-toggle="tooltip" data-original-title="facebook" style="cursor:pointer"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-social-icon btn-twitter" data-toggle="tooltip" data-original-title="twitter"><i class="fa fa-twitter"></i></a>
+                    <a data-toggle="tooltip" data-original-title="email us"  style="cursor:pointer"><i class="fa fa-envelope fa-fw"></i></a>
                 </div>
             </div>
         </div>
