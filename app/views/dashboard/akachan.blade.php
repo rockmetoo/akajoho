@@ -20,7 +20,6 @@
         <br/>
         <div class="row rowContainer">
             <div class="col-lg-8">
-                <a href="/lesson">Create Lesson</a> | <a href="/question">Create Question</a>
             </div>
         </div>
     </div>
