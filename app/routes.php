@@ -41,6 +41,12 @@ Route::post('/forgot/password/verify', 'ForgotPasswordController@postVerify');
 Route::get('/subscribe', 'EmailSubscribeController@getEmailSubscribe');
 Route::post('/subscribe', 'EmailSubscribeController@postEmailSubscribe');
 
+Route::get('/about', 'AboutController@getAbout');
+
+Route::get('/privacy', 'PrivacyController@getPrivacy');
+
+Route::get('/terms', 'TermsController@getTerms');
+
 // XXX: IMPORTANT - pages which require authentication
 Route::group(array('before' => 'auth'), function()
 {
