@@ -40,9 +40,24 @@
 	                    <li>
 	                        <a class="dropdown-toggle" href="/profile">{{ Auth::user()->email }}</a>
 	                    </li>
-	                    <li>
-	                        <a class="dropdown-toggle" href="/signout">Signout</a>
-	                    </li>
+	                    
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+							</a>
+							<ul class="dropdown-menu dropdown-user">
+								<li>
+									<a href="/profile"><i class="fa fa-user fa-fw"></i> Profile</a>
+								</li>
+								<li>
+									<a href="/settings"><i class="fa fa-gear fa-fw"></i> Settings</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="/signout"><i class="fa fa-sign-out fa-fw"></i> Signout</a>
+								</li>
+							</ul>
+						</li>
 	                </ul>
 
 	                <div class="navbar-default sidebar" role="navigation">
