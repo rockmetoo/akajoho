@@ -6,6 +6,14 @@
 
 body {
     background-color: #ffffff;
+    padding-top: 100px; /* IMPORTANT - because of fixed top */
+}
+
+@media(min-width:768px) {
+    body {
+        background-color: #ffffff;
+        padding-top: 15px; /* IMPORTANT - because of fixed top */
+    }
 }
 
 #wrapper {
