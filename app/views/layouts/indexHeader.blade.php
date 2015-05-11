@@ -42,7 +42,7 @@
 						<a href="/signup" class="top-link">Signup</a>
 					</li>
 					<li>
-						<a href="/features" class="top-link">Subscribe</a>
+						<a href="/subscribe" class="top-link">Subscribe</a>
 					</li>
                 </ul>
             </nav>
