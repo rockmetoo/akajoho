@@ -54,13 +54,7 @@
                         <li><a href="/about"><small>About Us</small></a></li>
                         <li><a href="/privacy"><small>Privacy Policy</small></a></li>
                         <li><a href="/terms"><small>Terms & Conditions</small></a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3 padding-md">
-                    <p class="font-lg text-danger">Useful Links</p>
-                    <ul class="list-unstyled useful-link">
                         <li><a href="/sitemap"><small>Site Map</small></a></li>
-                        <li><a href="/affiliates"><small>Affiliates</small></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 padding-md">
