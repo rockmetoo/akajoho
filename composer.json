@@ -11,7 +11,8 @@
         "illuminate/support": "4.2.*",
         "jenssegers/agent": "*",
         "pda/pheanstalk": "2.0.0",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "roumen/sitemap": "2.4.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*@dev",

@@ -123,7 +123,8 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Jenssegers\Agent\AgentServiceProvider',
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
-    	'Intervention\Image\ImageServiceProvider'
+    	'Intervention\Image\ImageServiceProvider',
+    	'Roumen\Sitemap\SitemapServiceProvider'
     ),
 
     /*

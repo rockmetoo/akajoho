@@ -47,6 +47,8 @@ Route::get('/privacy', 'PrivacyController@getPrivacy');
 
 Route::get('/terms', 'TermsController@getTerms');
 
+Route::get('/sitemap', 'SitemapController@getSitemap');
+
 // XXX: IMPORTANT - pages which require authentication
 Route::group(array('before' => 'auth'), function()
 {
