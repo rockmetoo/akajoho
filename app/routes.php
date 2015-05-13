@@ -18,6 +18,10 @@ Route::get('/status', function() {
     return Response::json('ok', 200);
 });
 
+// route to process search form
+Route::get('/search', 'IndexController@getIndex');
+Route::post('/search', 'SearchController@postSearch');
+	
 // route to show the signin form
 Route::get('/signin', 'AlohaController@getSignin');
 

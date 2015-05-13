@@ -9,38 +9,21 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
-
-					<div class="row" style="margin-top:2%">
-						<div class="col-lg-12">
-							<h3 class="item-header">All about kids stuff</h1>
-						</div>
+    <div class="container-fluid index-page-intro">
+		<div class="col-md-6 col-md-offset-3 index-search-box">
+			<div class="row text-center">
+				<form role="form" action="/search" name="searchForm" method="post">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="col-lg-8">
+						<input type="text" value="" placeholder="City/Postcode/Toys..." class="form-control" name="search" autocomplete="off">
 					</div>
-
-                    <div class="row">
-		            	<div class="col-lg-12">
-		                    <div class="panel panel-primary">
-		                        <div class="panel-heading">
-		                            <div class="row">
-		                                <div class="col-xs-3">
-		                                    <i class="fa fa-comments fa-5x"></i>
-		                                </div>
-		                                <div class="col-xs-9 text-right">
-		                                    <div class="huge">26</div>
-		                                    <div>New Comments!</div>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <a href="#">
-		                            <div class="panel-footer">
-		                                <span class="pull-left">View Details</span>
-		                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		                                <div class="clearfix"></div>
-		                            </div>
-		                        </a>
-		                    </div>
-						</div>
+	
+					<div class="col-lg-2">
+						<button class="btn btn-primary btn-block"><i class="icon-search"></i><strong>Search</strong></button>
 					</div>
+				</form>
+			</div>
+		</div>
     </div>
 @stop
 

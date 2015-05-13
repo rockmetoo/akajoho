@@ -718,3 +718,31 @@ input[type=file] {
 	border-radius: 0.5em; /* Comment out if you prefer squarish samples */
 	margin-right: 0.5em;
 }
+
+.index-page-intro {
+    background: url("/images/index_intro_1.jpeg") no-repeat scroll center top / cover rgba(0, 0, 0, 0);
+    height: 350px;
+    transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+    width: 100%;
+    margin-bottom: 10px;
+    min-height: 268px;
+}
+
+.index-search-box {
+    margin-top: 45%
+}
+
+@media screen and (min-width:767px) {
+    .index-page-intro {
+	    background: url("/images/index_intro_1.jpeg") no-repeat scroll center top / cover rgba(0, 0, 0, 0);
+	    height: 350px;
+	    transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
+	    width: 100%;
+	    margin-bottom: 10px;
+	    min-height: 768px;
+    }
+    
+    .index-search-box {
+        margin-top: 15%
+    }
+}
