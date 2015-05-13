@@ -419,24 +419,40 @@ ul.list_of_error li {
 	font-size: 120%;
 }
 
-.question-icon {
-    background: url('/images/question.png') no-repeat;
+.feeding-draining-icon {
+    background: url('/images/feeding.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
     height: 16px;
     float: left;
 }
 
-.lesson-icon {
-    background: url('/images/lesson.png') no-repeat;
+.place-play-icon {
+    background: url('/images/place_play.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
     height: 16px;
     float: left;
 }
 
-.school-icon {
-    background: url('/images/school.png') no-repeat;
+.weight-heat-icon {
+    background: url('/images/weight_heat.png') no-repeat;
+    background-position: 0px 1px;
+    background-color: transparent;
+    height: 16px;
+    float: left;
+}
+
+.shop-store-icon {
+    background: url('/images/shop_store.png') no-repeat;
+    background-position: 0px 1px;
+    background-color: transparent;
+    height: 16px;
+    float: left;
+}
+
+.friendly-mama-icon {
+    background: url('/images/friendly_mama.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
     height: 16px;
