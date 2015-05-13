@@ -15,7 +15,7 @@
 				<form role="form" action="/search" name="searchForm" method="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="col-lg-8">
-						<input type="text" value="" placeholder="City/Postcode/Toys..." class="form-control" name="search" autocomplete="off">
+						<input type="text" value="" placeholder="City/Postcode/Toys..." class="form-control" name="search" autocomplete="off" autofocus>
 					</div>
 	
 					<div class="col-lg-2">
