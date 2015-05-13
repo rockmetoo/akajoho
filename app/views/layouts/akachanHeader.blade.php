@@ -32,7 +32,7 @@
 	                        <span class="icon-bar"></span>
 	                    </button>
 	                    <a href="/" class="navbar-brand">
-	                        <span class="header-title-text">Akajoho</span>
+	                        <span class="header-title-text">Akajoho </span><sub>Beta</sub>
 	                    </a>
 	                </div>
 	                
