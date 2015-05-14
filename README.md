@@ -25,9 +25,6 @@ You may need to grant the web server write permissions to the app/storage direct
     curl -sS https://getcomposer.org/installer | php
     mv composer.phar /usr/local/bin/composer
     
-    [Composer Token For Github]
-    composer config -g github-oauth.github.com b6b5d624a2b16cb2b0db2aba473aae474d1a46e9
-    
 ## Quick Start
 
 Install packages for the first time
