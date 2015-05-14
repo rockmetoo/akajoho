@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                    	<a href="http://www.akajoho.com">akajoho.com</a> and its owners take a proactive approach to user privacy and ensure the necessary steps are taken to protect the privacy of its users throughout their visiting experience. <a href="http://www.akajoho.com">akajoho.com</a> complies to all international laws and requirements for user privacy.
+                    	<a href="http://www.akajoho.com">akajoho.com</a> and its owners take a proactive approach to user privacy and ensure the necessary steps are taken to protect the privacy of its users throughout their visiting experience. <a href="http://www.akajoho.com">akajoho.com</a> complies to all laws and requirements for user privacy.
                     </div>
             </div>
         </div>
