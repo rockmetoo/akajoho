@@ -714,8 +714,8 @@ input[type=file] {
 	float: left;
 	width: 1em;
 	height: 1em;
-	border: 2px solid; /* Comment out if you don't want to show the fillColor */
-	border-radius: 0.5em; /* Comment out if you prefer squarish samples */
+	border: 2px solid;     /* Comment out if you don't want to show the fillColor */
+	border-radius: 0.5em;  /* Comment out if you prefer squarish samples */
 	margin-right: 0.5em;
 }
 
@@ -732,6 +732,10 @@ input[type=file] {
     margin-top: 45%
 }
 
+.page-content-top {
+	margin-top: 0%;
+}
+
 @media screen and (min-width:767px) {
     .index-page-intro {
 	    background: url("/images/index_intro_1.jpeg") no-repeat scroll center top / cover rgba(0, 0, 0, 0);
@@ -744,5 +748,9 @@ input[type=file] {
     
     .index-search-box {
         margin-top: 15%
+    }
+    
+    .page-content-top {
+        margin-top: 3%;
     }
 }
