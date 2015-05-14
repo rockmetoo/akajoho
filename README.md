@@ -25,6 +25,9 @@ You may need to grant the web server write permissions to the app/storage direct
     curl -sS https://getcomposer.org/installer | php
     mv composer.phar /usr/local/bin/composer
     
+    [Composer Token For Github]
+    composer config -g github-oauth.github.com b6b5d624a2b16cb2b0db2aba473aae474d1a46e9
+    
 ## Quick Start
 
 Install packages for the first time
@@ -35,6 +38,17 @@ Run a webserver at default 8000 port. Ctrl+C to stop it
 
     php artisan serve
 
+## Queue Worker
+
+    [local]
+    php artisan queue:listen --queue=default --delay=0 --memory=128 --tries=0 --env=local
+    
+    [staging]
+    php artisan queue:listen --queue=default --delay=0 --memory=128 --tries=0 --env=staging
+
+    [production]
+    php artisan queue:listen --queue=default --delay=0 --memory=128 --tries=2 --env=production
+    
 ## Create Database
 
     CREATE DATABASE `akazoho` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
