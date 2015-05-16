@@ -20,10 +20,7 @@ set :keep_releases, 4
 
 #after 'deploy:cleanup', 'deploy:update'
 
-before "deploy:restart", :symlink_directories
-task :symlink_directories do
-  run "ln -nfs #{shared_path}/public/uploadFiles #{release_path}/public/uploadFiles"
-end
+set :shared_children, shared_children + %w{public/uploadFiles}
 
 namespace :laravel do
     desc "Optimize Laravel Class Loader"
