@@ -39,18 +39,22 @@ class Profile extends Eloquent
             
             $realPath = public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_160X160.jpg';
             $img->save($realPath);
+            $img->destroy();
             
             $img = Image::make($realPath);
             $img->crop($postData['w'], $postData['h'], $postData['x'], $postData['y']);
             $img->save(public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_croped.jpg');
+            $img->destroy();
             
             $img = Image::make(public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_croped.jpg');
             $img->resize(64, 64);
             $img->save(public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_64X64.jpg');
+            $img->destroy();
             
             $img = Image::make(public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_croped.jpg');
             $img->resize(32, 32);
             $img->save(public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_32X32.jpg');
+            $img->destroy();
             
             $dataForProfile = array(
                 'firstName'   => $postData['firstName'],

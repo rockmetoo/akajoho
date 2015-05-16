@@ -78,4 +78,6 @@ Route::group(array('before' => 'auth'), function()
     
     Route::get('/weight/heat', 'WeightAndHeatController@getWeightAndHeat');
     Route::post('/weight/heat', 'WeightAndHeatController@postWeightAndHeat');
+    
+    Route::get('/mycalendar', 'MycalendarController@getIndex');
 });

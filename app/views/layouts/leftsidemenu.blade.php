@@ -16,7 +16,7 @@
             <a href="/shop/store" @if (Route::getCurrentRoute()->getPath() == 'shop/store') class="active" @endif><i class="fa shop-store-icon fa-fw"></i>&nbsp;&nbsp;Shop & Store</a>
         </li>
         <li>
-            <a href="/social/mama" @if (Route::getCurrentRoute()->getPath() == 'social/mama') class="active" @endif><i class="fa friendly-mama-icon fa-fw"></i>&nbsp;&nbsp;Friendly Mama</a>
+            <a href="/social" @if (Route::getCurrentRoute()->getPath() == 'social') class="active" @endif><i class="fa friendly-mama-icon fa-fw"></i>&nbsp;&nbsp;Social</a>
         </li>
     @stop
 @endif
