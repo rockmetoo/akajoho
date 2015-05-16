@@ -7,10 +7,8 @@
 @section('internalCSSLibrary')
     @if (App::environment('production'))
     	{{ HTML::style('/css/fullcalendar.css', [], true) }}
-    	{{ HTML::style('/css/fullcalendar.print.css', [], true) }}
     @else
     	{{ HTML::style('/css/fullcalendar.css') }}
-    	{{ HTML::style('/css/fullcalendar.print.css') }}
     @endif
 @stop
 
@@ -39,10 +37,6 @@
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: [
-{
-	title: 'All Day Event',
-	start: '2015-05-18'
-}
 			],
 			eventRender: function(event, element, view) {
 			    if (event.allDay === 'true') {
