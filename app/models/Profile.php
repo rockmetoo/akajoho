@@ -33,10 +33,9 @@ class Profile extends Eloquent
 
         if ($profilePictureFile) {
             $md5Name = md5(Auth::user()->email);
+
             $img = Image::make(public_path().'/uploadFiles/tmpProfilePic/'.$md5Name);
-            
             $img->resize(160, 160);
-            
             $realPath = public_path().'/uploadFiles/realProfilePic/'.$md5Name.'_160X160.jpg';
             $img->save($realPath);
             $img->destroy();
