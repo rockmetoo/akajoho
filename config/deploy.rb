@@ -18,9 +18,8 @@ set :pty, true
 set :copy_exclude, [".git", ".gitignore", ".tags", ".tags_sorted_by_file", "Capfile", "apiary.apib"]
 set :keep_releases, 4
 
-#after 'deploy:cleanup', 'deploy:update'
-
-set :shared_children, shared_children + %w{public/uploadFiles}
+# keep uploadFiles directory untouched
+set :linked_dirs, %w(public/uploadFiles)
 
 namespace :laravel do
     desc "Optimize Laravel Class Loader"
@@ -47,11 +46,13 @@ namespace :deploy do
         end
     end
     
+    before :finishing, 'linked_files:upload_dirs'
+    
     after :cleanup, 'deploy:fix_cleanup'
     after :finishing, 'deploy:fix_permissions'
     after :finishing, 'laravel:optimize'
     
     # nginx is run by supervisord
-    #after :finishing, 'nginx:reload'
+    after :finishing, 'nginx:stop'
     after :finishing, 'php_fpm:restart'
 end

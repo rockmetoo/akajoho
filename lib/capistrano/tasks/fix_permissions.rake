@@ -10,6 +10,8 @@ namespace :deploy do
             execute :sudo, :mkdir, '-p ', current_path.join('public/uploadFiles/realProfilePic');
             execute :sudo, :mkdir, '-p ', current_path.join('public/uploadFiles/tmpProfilePic');
             execute :sudo, :chown, '-R nginx.nginx', current_path.join('public/uploadFiles');
+            execute :sudo, :chown, '-R nginx.nginx', current_path.join('public/uploadFiles/realProfilePic');
+            execute :sudo, :chown, '-R nginx.nginx', current_path.join('public/uploadFiles/tmpProfilePic');
             execute :sudo, :chmod, '-R 0777', current_path.join('public/uploadFiles');
         end
     end

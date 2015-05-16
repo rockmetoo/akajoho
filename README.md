@@ -65,6 +65,7 @@ Run a webserver at default 8000 port. Ctrl+C to stop it
 
     gem install capistrano
     gem install capistrano-composer
+    gem install capistrano-linked-files
 
 ## Update Library/Version
 
