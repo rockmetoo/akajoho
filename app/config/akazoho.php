@@ -9,9 +9,10 @@
 	    	'noreply' => 'akajoho@gmail.com',
 	    	'support' => 'akajoho@gmail.com'
 	    ),
-	    'whichSNS' => array(
-	    	'Facebook'	=> 1,
-	    	'Twitter'	=> 2	
+	    'whereToNotify' => array(
+	    	'Mail'		=> 1,
+	    	'Facebook'	=> 2,
+	    	'Twitter'	=> 3
 	    ),
 	    'whenToNotify' => array(
 	    	'1_day_b4'		=> 1,

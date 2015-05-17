@@ -36,8 +36,7 @@
 			defaultDate: '{{ date("Y-m-d") }}',
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-			],
+			events: "/mycalendar/events",
 			eventRender: function(event, element, view) {
 			    if (event.allDay === 'true') {
 					event.allDay = true;
@@ -47,6 +46,10 @@
 			},
 			selectable: true,
 			selectHelper: true,
+			select: function(start) {
+				var d = new Date(start);
+				location.href = "/mycalendar/add/event/" + d.getTime();
+			}
 		});
     });
 

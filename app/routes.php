@@ -80,4 +80,8 @@ Route::group(array('before' => 'auth'), function()
     Route::post('/weight/heat', 'WeightAndHeatController@postWeightAndHeat');
     
     Route::get('/mycalendar', 'MycalendarController@getIndex');
+    Route::get('/mycalendar/events', 'MycalendarController@getEvents');
+    Route::get('/mycalendar/add/event/{timestamp}', 'MycalendarController@getAddEvents')
+    ->where('timestamp', '[0-9]+');
+    Route::post('/mycalendar/add/event', 'MycalendarController@postAddEvents');
 });

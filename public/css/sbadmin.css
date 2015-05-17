@@ -425,7 +425,7 @@ ul.list_of_error li {
     background: url('/images/feeding.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
-    height: 16px;
+    height: 24px;
     float: left;
 }
 
@@ -433,7 +433,7 @@ ul.list_of_error li {
     background: url('/images/place_play.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
-    height: 16px;
+    height: 24px;
     float: left;
 }
 
@@ -441,7 +441,7 @@ ul.list_of_error li {
     background: url('/images/weight_heat.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
-    height: 16px;
+    height: 24px;
     float: left;
 }
 
@@ -449,7 +449,7 @@ ul.list_of_error li {
     background: url('/images/shop_store.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
-    height: 16px;
+    height: 24px;
     float: left;
 }
 
@@ -457,7 +457,7 @@ ul.list_of_error li {
     background: url('/images/friendly_mama.png') no-repeat;
     background-position: 0px 1px;
     background-color: transparent;
-    height: 16px;
+    height: 24px;
     float: left;
 }
 
@@ -755,4 +755,9 @@ input[type=file] {
     .page-content-top {
         margin-top: 3%;
     }
+}
+
+.fa-fw-custom {
+	text-align: center;
+	width: 1.78571em;
 }
