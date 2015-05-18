@@ -36,7 +36,6 @@ App::before(function($request)
             } else {
             	$app->USER_PROFILE['fullName'] = 'No Name';
             }
-    
         } else {
             $app->USER_PROFILE = array();
         }

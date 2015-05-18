@@ -124,7 +124,8 @@ return array(
         'Jenssegers\Agent\AgentServiceProvider',
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
     	'Intervention\Image\ImageServiceProvider',
-    	'Roumen\Sitemap\SitemapServiceProvider'
+    	'Roumen\Sitemap\SitemapServiceProvider',
+    	'Artdarek\OAuth\OAuthServiceProvider'
     ),
 
     /*
@@ -193,7 +194,8 @@ return array(
         'View'            => 'Illuminate\Support\Facades\View',
         'Agent'           => 'Jenssegers\Agent\Facades\Agent',
         'Bugsnag'         => 'Bugsnag\BugsnagLaravel\BugsnagFacade',
-    	'Image'			  => 'Intervention\Image\Facades\Image'
+    	'Image'			  => 'Intervention\Image\Facades\Image',
+    	'OAuth'			  => 'Artdarek\OAuth\Facade\OAuth'
     ),
 
 );

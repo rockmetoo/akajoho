@@ -15,8 +15,8 @@ class CreateSnsTable extends Migration {
     	if (!Schema::hasTable('snsAuthentication')) {
 	        Schema::create('snsAuthentication', function($t) {
 	            $t->bigInteger('userId')->unsigned()->default(0);
-	            $t->string('facebook', 255)->default(null)->nullable();
-	            $t->string('twitter', 255)->default(null)->nullable();
+	            $t->text('facebook')->default(null)->nullable()->comment('JSON encoded credentials');
+	            $t->text('twitter')->default(null)->nullable()->comment('JSON encoded credentials');
 	            $t->bigInteger('createdBy')->unsigned()->default(0);
 	            $t->bigInteger('updatedBy')->unsigned()->default(0);
 	            $t->dateTime('dateCreated')->default('0000-00-00 00:00:00');

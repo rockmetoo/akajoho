@@ -81,7 +81,13 @@ Route::group(array('before' => 'auth'), function()
     
     Route::get('/mycalendar', 'MycalendarController@getIndex');
     Route::get('/mycalendar/events', 'MycalendarController@getEvents');
-    Route::get('/mycalendar/add/event/{timestamp}', 'MycalendarController@getAddEvents')
+    
+    Route::get('/mycalendar/add/event/{timestamp}', 'MycalendarController@getAddEvent')
     ->where('timestamp', '[0-9]+');
-    Route::post('/mycalendar/add/event', 'MycalendarController@postAddEvents');
+    
+    Route::post('/mycalendar/add/event/{timestamp}', 'MycalendarController@postAddEvent')
+    ->where('timestamp', '[0-9]+');
+    
+    Route::get('/fb/token/callback', 'SNSAuthController@getFacebookAuth');
+    Route::get('/tw/token/callback', 'SNSAuthController@getTwitterAuth');
 });

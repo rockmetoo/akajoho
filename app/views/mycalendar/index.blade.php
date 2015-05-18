@@ -51,6 +51,10 @@
 				location.href = "/mycalendar/add/event/" + d.getTime();
 			}
 		});
+
+		setTimeout(function () {
+			$('.alert-success').hide('slow');
+        }, 8000);
     });
 
     </script>
@@ -61,6 +65,11 @@
 		<br/>
 		<div class="row rowContainer">
 			<div class="col-lg-12">
+            	@if (null !== Session::get('success'))
+                <div class="alert alert-success">
+                {{ Session::get('success') }}
+                </div>
+                @endif
 				<div id='calendar'></div>
 			</div>
 		</div>
