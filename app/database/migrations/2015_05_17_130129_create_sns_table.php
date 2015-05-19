@@ -17,6 +17,7 @@ class CreateSnsTable extends Migration {
 	            $t->bigInteger('userId')->unsigned()->default(0);
 	            $t->text('facebook')->default(null)->nullable()->comment('JSON encoded credentials');
 	            $t->text('twitter')->default(null)->nullable()->comment('JSON encoded credentials');
+	            $t->string('callback', 255)->default(null)->nullable();
 	            $t->bigInteger('createdBy')->unsigned()->default(0);
 	            $t->bigInteger('updatedBy')->unsigned()->default(0);
 	            $t->dateTime('dateCreated')->default('0000-00-00 00:00:00');

@@ -78,6 +78,23 @@
 			}
 	    });
 	    @endif
+
+	    $('#facebookAuth').click(function() {
+	        location.href = '/get/fb/token';
+	        return false;
+	    });
+
+		@if (null !== Session::get('success'))
+		setTimeout(function () {
+			$('.alert-success').hide('slow');
+        }, 8000);
+	    @endif
+	        
+		@if (null !== Session::get('error'))
+		setTimeout(function () {
+			$('.alert-danger').hide('slow');
+        }, 8000);
+	    @endif
     });
     </script>
 @stop
@@ -87,6 +104,17 @@
         <br/>
         <div class="row rowContainer">
             <div class="col-lg-12">
+            	@if (null !== Session::get('success'))
+                <div class="alert alert-success">
+                {{ Session::get('success') }}
+                </div>
+                @endif
+                
+            	@if (null !== Session::get('error'))
+                <div class="alert alert-danger">
+                {{ Session::get('error') }}
+                </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">Update a Calendar Event</div>
                     <div class="panel-body">
