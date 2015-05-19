@@ -94,6 +94,9 @@ Route::group(array('before' => 'auth'), function()
     Route::post('/mycalendar/update/event/{id}', 'MycalendarController@postUpdateEvent')
     ->where('id', '[0-9]+');
     
+    Route::get('/get/fb/token', 'SNSAuthController@getFacebookToken');
+    Route::get('/get/tw/token', 'SNSAuthController@getTwitterToken');
+    
     Route::get('/fb/token/callback', 'SNSAuthController@getFacebookAuth');
     Route::get('/tw/token/callback', 'SNSAuthController@getTwitterAuth');
 });

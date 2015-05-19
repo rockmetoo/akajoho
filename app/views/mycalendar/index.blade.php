@@ -35,7 +35,7 @@
 				right: 'month,basicWeek,basicDay'
 			},
 			defaultDate: '{{ date("Y-m-d") }}',
-			editable: true,
+			editable: false, // disable dragging
 			eventLimit: true, // allow "more" link when too many events
 			eventSources: [{
 				url: "/mycalendar/events",

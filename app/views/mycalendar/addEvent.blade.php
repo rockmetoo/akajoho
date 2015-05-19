@@ -59,6 +59,11 @@
 			}
 	    });
 	    @endif
+
+	    $('#facebookAuth').click(function() {
+	        location.href = '/get/fb/token';
+	        return false;
+	    });
     });
     </script>
 @stop
