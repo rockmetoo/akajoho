@@ -19,8 +19,6 @@
 --------------------------------------------------------------------------------------------------*/
 
 .fc-event {
-	background: #fff !important;
-	color: #000 !important;
 	page-break-inside: avoid;
 }
 
@@ -190,13 +188,4 @@ tbody,
 .fc-row {
 	border: 0 !important;
 	margin: 0 !important;
-}
-
-
-/* Button Controls
---------------------------------------------------------------------------------------------------*/
-
-.fc-button-group,
-.fc button {
-	display: none; /* don't display any button-related controls */
 }

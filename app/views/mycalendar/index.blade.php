@@ -9,6 +9,7 @@
     	{{ HTML::style('/css/fullcalendar.css', [], true) }}
     @else
     	{{ HTML::style('/css/fullcalendar.css') }}
+    	{{ HTML::style('/css/fullcalendar.print.css'	) }}
     @endif
 @stop
 
@@ -36,9 +37,14 @@
 			defaultDate: '{{ date("Y-m-d") }}',
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: "/mycalendar/events",
+			eventSources: [{
+				url: "/mycalendar/events",
+				borderColor: '1px solid #3a87ad',
+				backgroundColor: '#3a87ad',
+				textColor: 'black'
+			}],
 			eventRender: function(event, element, view) {
-			    if (event.allDay === 'true') {
+			    if (event.allDay == 1) {
 					event.allDay = true;
 			    } else {
 					event.allDay = false;
@@ -49,12 +55,24 @@
 			select: function(start) {
 				var d = new Date(start);
 				location.href = "/mycalendar/add/event/" + d.getTime();
+			},
+			eventClick: function(event, jsEvent, view) {
+				location.href = "/mycalendar/update/event/" + event.id;
+				return false;
 			}
 		});
 
+		@if (null !== Session::get('success'))
 		setTimeout(function () {
 			$('.alert-success').hide('slow');
         }, 8000);
+        @endif
+        
+		@if (null !== Session::get('error'))
+		setTimeout(function () {
+			$('.alert-danger').hide('slow');
+        }, 8000);
+        @endif
     });
 
     </script>
@@ -70,7 +88,14 @@
                 {{ Session::get('success') }}
                 </div>
                 @endif
-				<div id='calendar'></div>
+                
+            	@if (null !== Session::get('error'))
+                <div class="alert alert-danger">
+                {{ Session::get('error') }}
+                </div>
+                @endif
+                
+                <div id='calendar'></div>
 			</div>
 		</div>
 	</div>    

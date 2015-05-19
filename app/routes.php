@@ -88,6 +88,12 @@ Route::group(array('before' => 'auth'), function()
     Route::post('/mycalendar/add/event/{timestamp}', 'MycalendarController@postAddEvent')
     ->where('timestamp', '[0-9]+');
     
+    Route::get('/mycalendar/update/event/{id}', 'MycalendarController@getUpdateEvent')
+    ->where('id', '[0-9]+');
+    
+    Route::post('/mycalendar/update/event/{id}', 'MycalendarController@postUpdateEvent')
+    ->where('id', '[0-9]+');
+    
     Route::get('/fb/token/callback', 'SNSAuthController@getFacebookAuth');
     Route::get('/tw/token/callback', 'SNSAuthController@getTwitterAuth');
 });
