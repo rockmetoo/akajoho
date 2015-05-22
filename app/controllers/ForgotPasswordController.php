@@ -60,7 +60,7 @@ class ForgotPasswordController extends BaseController
 
             // XXX: IMPORTANT - send an email to info@simpleso.jp
             Mail::queue('emails.verifyPasswordResetRequest', $data, function ($message) use ($mailSubject, $postData) {
-                $message->from('schooler.noreply@gmail.com', 'Noreply');
+                $message->from('akajoho@gmail.com', 'Noreply');
                 $message->to($postData['email'])
                 ->subject($mailSubject);
             });

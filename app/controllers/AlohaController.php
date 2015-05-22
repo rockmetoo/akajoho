@@ -116,7 +116,7 @@ class AlohaController extends BaseController
                 } else if (App::environment('staging')) {
                     $data = array(
                         'email' => $postData['email'],
-                        'confirmationLink' => 'http://staging.akajoho.com/signup/verify?c='.$code,
+                        'confirmationLink' => 'http://www.akajoho.com/signup/verify?c='.$code,
                     );
                     $mailSubject = 'DEVELOPMENT: Akazoho - Verify your email address';
                 } else {

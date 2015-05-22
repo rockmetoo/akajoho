@@ -9,10 +9,10 @@
         </p>
         <p>
            You recently requested a password reset.<br/><br/>
-           To change your Akazoho password, click <a href="{{ $verifyLink }}" target="_blank">here</a> or paste the following link into your browser:<br/>
+           To change your Akajoho password, click <a href="{{ $verifyLink }}" target="_blank">here</a> or paste the following link into your browser:<br/>
            {{ $verifyLink }}<br/><br/>
            The link will expire in 24 hours, so be sure to use it right away.<br/><br/>
-           Thanks for using Akazoho!<br/>The Akazoho Team
+           Thanks for using Akajoho!<br/>The Akajoho Team
         </p>
     </body>
 </html>
