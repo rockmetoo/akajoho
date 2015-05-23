@@ -7,6 +7,7 @@
 role :web, %w{52.68.204.24}
 set :user, "ec2-user"
 set :branch, 'master'
+#set :deploy_to, '/var/www/staging.akajoho'
 
 set :composer_install_flags, '--prefer-dist --no-interaction'
 #set :composer_install_flags, '--prefer-source --no-interaction'
