@@ -16,7 +16,7 @@ class ForgotPasswordController extends BaseController
         // validate the info, create rules for the inputs
         $rules = array('email' => 'required|email|exists:users,email');
 
-        Validator::getPresenceVerifier()->setConnection('schoolerUsers');
+        Validator::getPresenceVerifier()->setConnection('akazohoUsers');
 
         // run the validation rules on the inputs from the form
         $validator = Validator::make($postData, $rules);
