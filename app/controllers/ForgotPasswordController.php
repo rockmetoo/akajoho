@@ -45,22 +45,29 @@ class ForgotPasswordController extends BaseController
             if (App::environment('production')) {
                 $data = array(
                     'email' => $postData['email'],
-                    'verifyLink' => 'https://schooler.com/forgot/password/verify?code='.$code,
+                    'verifyLink' => Config::get('akazoho.protocol').Config::get('akazoho.domain').'/forgot/password/verify?code='.$code,
                 );
 
-                $mailSubject = 'Schooler - Forgot password email verification';
+                $mailSubject = 'Akajoho - Forgot password email verification';
+            } else if (App::environment('staging')) {
+                $data = array(
+                    'email' => $postData['email'],
+                    'verifyLink' => Config::get('akazoho.protocol').Config::get('akazoho.domain').'/forgot/password/verify?code='.$code,
+                );
+
+                $mailSubject = 'Akajoho - Forgot password email verification';
             } else {
                 $data = array(
                     'email' => $postData['email'],
-                    'verifyLink' => 'http://local.schooler.com/forgot/password/verify?code='.$code,
+                    'verifyLink' => Config::get('akazoho.protocol').Config::get('akazoho.domain').'/forgot/password/verify?code='.$code,
                 );
 
-                $mailSubject = 'DEVELOPMENT: Schooler - Forgot password email verification';
+                $mailSubject = 'DEVELOPMENT: Akajoho - Forgot password email verification';
             }
 
             // XXX: IMPORTANT - send an email to info@simpleso.jp
             Mail::queue('emails.verifyPasswordResetRequest', $data, function ($message) use ($mailSubject, $postData) {
-                $message->from('akajoho@gmail.com', 'Noreply');
+                $message->from(Config::get('akazoho.mail.noreply'), 'Noreply');
                 $message->to($postData['email'])
                 ->subject($mailSubject);
             });

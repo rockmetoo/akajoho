@@ -4,6 +4,7 @@
 	    'auth' => array(
 	        'ttl' => 1800,
 	    ),
+	    'domain' => 'www.akajoho.com',
 	    'mail' => array(
 	    	'contact' => 'akajoho@gmail.com',
 	    	'noreply' => 'akajoho@gmail.com',
