@@ -53,6 +53,7 @@ namespace :deploy do
     after :finishing, 'laravel:optimize'
     
     # nginx is run by supervisord
+    after :finishing, 'supervisord:restart'
     after :finishing, 'nginx:stop'
     after :finishing, 'php_fpm:restart'
 end

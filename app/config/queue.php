@@ -78,8 +78,7 @@ return array(
 
 	'failed' => array(
 
-		'database' => 'creative', 'table' => 'failedJobs',
-
+		'database' => 'akazoho', 'table' => 'failedJobs',
 	),
 
 );
