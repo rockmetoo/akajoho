@@ -12,8 +12,8 @@ class CreateForgotPasswordVerifyTable extends Migration {
  */
     public function up()
     {
-    	if (!Schema::hasTable('forgotPasswordVerify')) {
-	        Schema::create('forgotPasswordVerify', function($t) {
+    	if (!Schema::connection('akazohoUsers')->hasTable('forgotPasswordVerify')) {
+    		Schema::connection('akazohoUsers')->create('forgotPasswordVerify', function($t) {
 	            $t->bigInteger('userId')->unsigned()->default(0);
 	            $t->string('email', 255)->unique();
 	            $t->string('code', 128)->default(null);
@@ -36,7 +36,7 @@ class CreateForgotPasswordVerifyTable extends Migration {
  */
     public function down()
     {
-        Schema::drop('forgotPasswordVerify');
+        Schema::connection('akazohoUsers')->drop('forgotPasswordVerify');
     }
 
 }
