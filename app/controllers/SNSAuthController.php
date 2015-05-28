@@ -61,10 +61,12 @@ class SNSAuthController extends BaseController
     		// This was a callback request from facebook, get the token
     		$token = $fb->requestAccessToken($code);
     	
+    		$accessToken = $token->getAccessToken();
+
     		$result = json_decode($fb->request('/me'), true);
     	
     		Sns::saveFacebookAuthentication(
-    			$userId, array('userid' => $result['id'], 'code' => $code, 'accessToken' => $token)
+    			$userId, array('userid' => $result['id'], 'code' => $code, 'accessToken' => $accessToken)
     		);
     		
     		return Redirect::to((string)$res[0]->callback)->with('success', 'Facebook authentication has been successful');
