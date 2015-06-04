@@ -82,28 +82,28 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Title</label>
-                                        <input type="text" class="form-control" name="title" value="{{ (Input::old('title')) }}" />
+                                        <input type="text" class="form-control" name="title" value="{{ Input::old('title') }}" />
                                         @if ($errors->has('title')) <ul class="list_of_error" id="list_of_error_title"><li id="error_item_title_default">Please enter event title (max. 255)</li></ul> @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Start</label>
-                                        <input type="text" class="form-control" name="start" id="start" value="{{ (Input::old('start')) }}" />
+                                        <input type="text" class="form-control" name="start" id="start" value="{{ Input::old('start') }}" />
                                         @if ($errors->has('start')) <ul class="list_of_error" id="list_of_error_start"><li id="error_item_start_default">Please enter start time properly</li></ul> @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                 	<div class="form-group">
                                     	<label>End</label>
-                                       	<input type="text" class="form-control" name="end" id="end" value="{{ (Input::old('end')) }}" />
+                                       	<input type="text" class="form-control" name="end" id="end" value="{{ Input::old('end') }}" />
                                         @if ($errors->has('end')) <ul class="list_of_error" id="list_of_error_end"><li id="error_item_end_default">Please enter end time properly</li></ul> @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Memo</label>
-                                        <textarea class="form-control" name="eventMemo" value="{{ (Input::old('eventMemo')) }}"></textarea>
+                                        <textarea class="form-control" name="eventMemo" value="{{ Input::old('eventMemo') }}"></textarea>
                                         @if ($errors->has('eventMemo')) <ul class="list_of_error" id="list_of_error_eventMemo"><li id="error_item_eventMemo_default">Please write a memo (max. 2048)</li></ul> @endif
                                     </div>
                                 </div>
@@ -171,6 +171,22 @@
                                         @if ($errors->has('whereToNotify'))
                                         	<ul class="list_of_error" id="list_of_error_whenToNotify">
                                          		<li id="error_item_whenToNotify_default">Select properly</li>
+                                            </ul>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Notify Me Every Year</label>
+                                        <div class="checkbox">
+                                        	<label>
+                                            	<input type="checkbox" value="1" name="isYearlyEvent" {{ (Input::old('isYearlyEvent')) ? "checked" : "" }} />
+                                                Yes
+                                            </label>
+                                        </div>
+                                        @if ($errors->has('isYearlyEvent'))
+                                        	<ul class="list_of_error" id="list_of_error_isYearlyEvent">
+                                         		<li id="error_item_isYearlyEvent_default">Select properly</li>
                                             </ul>
                                         @endif
                                     </div>

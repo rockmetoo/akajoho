@@ -24,6 +24,7 @@ class CreateCalendarTable extends Migration {
 	            $t->tinyInteger('whereToNotify')->default(null)->nullable();
 	            $t->tinyInteger('whenToNotify')->default(null)->nullable();
 	            $t->string('notifyEmail', 255)->default(null)->nullable();
+	            $t->boolean('isYearlyEvent')->default(0);
 	            $t->bigInteger('createdBy')->unsigned()->default(0);
 	            $t->bigInteger('updatedBy')->unsigned()->default(0);
 	            $t->dateTime('dateCreated')->default('0000-00-00 00:00:00');

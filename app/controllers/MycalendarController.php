@@ -4,7 +4,14 @@ class MycalendarController extends BaseController
 {
     public function getIndex()
     {
-		return View::make('mycalendar.index');
+    	$cal = Calendar::make();
+    	
+    	$cal->setTableClass('table table-striped table-bordered table-hover dataTable no-footer');
+    	$cal->setNextIcon('<button class="btn btn-outline btn-default" type="button">Next</button>');
+    	$cal->setPrevIcon('<button class="btn btn-outline btn-default" type="button">Previous</button>');
+    	$calendarHtml = $cal->generate();
+    	
+		return View::make('mycalendar.index', [ 'calendarHtml' => $calendarHtml ]);
     }
     
     public function getEvents()

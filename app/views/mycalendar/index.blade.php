@@ -7,9 +7,10 @@
 @section('internalCSSLibrary')
     @if (App::environment('production'))
     	{{ HTML::style('/css/fullcalendar.css', [], true) }}
+    	{{ HTML::style('/css/fullcalendar.print.css', [], true) }}
     @else
     	{{ HTML::style('/css/fullcalendar.css') }}
-    	{{ HTML::style('/css/fullcalendar.print.css'	) }}
+    	{{ HTML::style('/css/fullcalendar.print.css') }}
     @endif
 @stop
 
@@ -51,10 +52,10 @@
 			    }
 			},
 			selectable: true,
-			selectHelper: true,
-			select: function(start) {
+			select: function(start, end, allDay) {
 				var d = new Date(start);
 				location.href = "/mycalendar/add/event/" + d.getTime();
+				return false;
 			},
 			eventClick: function(event, jsEvent, view) {
 				location.href = "/mycalendar/update/event/" + event.id;
@@ -95,7 +96,8 @@
                 </div>
                 @endif
                 
-                <div id='calendar'></div>
+                {{ $calendarHtml }}
+                <!-- <div id='calendar'></div> -->
 			</div>
 		</div>
 	</div>    

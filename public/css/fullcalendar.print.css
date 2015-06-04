@@ -22,11 +22,6 @@
 	page-break-inside: avoid;
 }
 
-.fc-event .fc-resizer {
-	display: none;
-}
-
-
 /* Table & Day-Row Restyling
 --------------------------------------------------------------------------------------------------*/
 
@@ -73,11 +68,6 @@ tbody,
 /* Undo month-view event limiting. Display all events and hide the "more" links
 --------------------------------------------------------------------------------------------------*/
 
-.fc-more-cell,
-.fc-more {
-	display: none !important;
-}
-
 .fc tr.fc-limited {
 	display: table-row !important;
 }
@@ -86,28 +76,12 @@ tbody,
 	display: table-cell !important;
 }
 
-.fc-popover {
-	display: none; /* never display the "more.." popover in print mode */
-}
-
-
 /* TimeGrid Restyling
 --------------------------------------------------------------------------------------------------*/
 
 /* undo the min-height 100% trick used to fill the container's height */
 .fc-time-grid {
 	min-height: 0 !important;
-}
-
-/* don't display the side axis at all ("all-day" and time cells) */
-.fc-agenda-view .fc-axis {
-	display: none;
-}
-
-/* don't display the horizontal lines */
-.fc-slats,
-.fc-time-grid hr { /* this hr is used when height is underused and needs to be filled */
-	display: none !important; /* important overrides inline declaration */
 }
 
 /* let the container that holds the events be naturally positioned and create real height */
@@ -160,11 +134,6 @@ tbody,
 /* undo a previous declaration and let the time text span to a second line */
 .fc-time-grid .fc-event .fc-time {
 	white-space: normal !important;
-}
-
-/* hide the the time that is normally displayed... */
-.fc-time-grid .fc-event .fc-time span {
-	display: none;
 }
 
 /* ...replace it with a more verbose version (includes AM/PM) stored in an html attribute */

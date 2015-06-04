@@ -164,7 +164,7 @@
                                        		<li id="error_item_notifyEmail_default">Please write a memo (max. 2048)</li>
                                        	</ul>
                                        	@endif
-                                        <div class="checkbox">
+                                        <!-- <div class="checkbox">
                                         	<label>
                                             	<input type="checkbox" value="2" name="whereToNotify[]" id="facebookme" {{ ($event[0]->whereToNotify & Config::get('akazoho.whereToNotify.Facebook')) ? "checked" : "" }} />
                                                 Facebook
@@ -181,7 +181,7 @@
                                             @if (!count($twitterAuth))
                                             <button class="btn btn-primary btn-xs hide" type="button"  id="twitterAuth">Authorize</button>
                                             @endif
-                                        </div>
+                                        </div>-->
                                         @if ($errors->has('whereToNotify'))
                                         	<ul class="list_of_error" id="list_of_error_whereToNotify">
                                          		<li id="error_item_whereToNotify_default">Select properly</li>
@@ -213,6 +213,22 @@
                                         @if ($errors->has('whereToNotify'))
                                         	<ul class="list_of_error" id="list_of_error_whenToNotify">
                                          		<li id="error_item_whenToNotify_default">Select properly</li>
+                                            </ul>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Notify Me Every Year</label>
+                                        <div class="checkbox">
+                                        	<label>
+                                            	<input type="checkbox" value="1" name="isYearlyEvent" {{ ($event[0]->isYearlyEvent) ? "checked" : "" }} />
+                                                Yes
+                                            </label>
+                                        </div>
+                                        @if ($errors->has('isYearlyEvent'))
+                                        	<ul class="list_of_error" id="list_of_error_isYearlyEvent">
+                                         		<li id="error_item_isYearlyEvent_default">Select properly</li>
                                             </ul>
                                         @endif
                                     </div>

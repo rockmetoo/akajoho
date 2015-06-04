@@ -29,7 +29,7 @@ class MyCalendarEvent extends Eloquent
     
     public function scopeGetEventsById($query, $userId, $id)
     {
-    	$res = $query->selectRaw('id, title, start, end, eventMemo as url, allDay as allday, whereToNotify, whenToNotify, notifyEmail')
+    	$res = $query->selectRaw('id, title, start, end, eventMemo as url, allDay as allday, whereToNotify, whenToNotify, notifyEmail, isYearlyEvent')
     	->where('userId', $userId)
     	->where('id', $id);
     
@@ -59,6 +59,7 @@ class MyCalendarEvent extends Eloquent
         	'whereToNotify'	=> $whereToNotify,
         	'whenToNotify'	=> $whenToNotify,
         	'notifyEmail'	=> (!empty($postData['notifyEmail'])) ? $postData['notifyEmail'] : null,
+        	'isYearlyEvent'	=> (!empty($postData['isYearlyEvent'])) ? $postData['isYearlyEvent'] : 0,
         	'createdBy'		=> $userId,
         	'updatedBy'		=> $userId,
             'dateCreated'	=> $now,
@@ -90,6 +91,7 @@ class MyCalendarEvent extends Eloquent
     		'whereToNotify'	=> $whereToNotify,
     		'whenToNotify'	=> $whenToNotify,
     		'notifyEmail'	=> (!empty($postData['notifyEmail'])) ? $postData['notifyEmail'] : null,
+    		'isYearlyEvent'	=> (!empty($postData['isYearlyEvent'])) ? $postData['isYearlyEvent'] : 0,
     		'updatedBy'		=> $userId,
     		'dateUpdated'	=> $now
     	);
