@@ -21,7 +21,17 @@ class MycalendarController extends BaseController
     	$cal->setWeekIcon('<button class="btn btn-outline btn-default" type="button">Week</button>');
     	$cal->setDayIcon('<button class="btn btn-outline btn-default" type="button">Day</button>');
     	
-    	$cal->setEvents(array());
+    	$start = '2015-06-01';
+    	$end	= '2015-06-30';
+    	
+    	$res = MyCalendarEvent::getEventsByStartAndEnd(Auth::user()->userId, $start, $end)->get();
+    	
+    	$events = array();
+    	foreach ($res as $key => $val) {
+    		$events[$val->start][] = $val->title;
+    	}
+    	
+    	$cal->setEvents($events);
     	$calendarHtml = $cal->generate();
     	
 		return View::make('mycalendar.index', [ 'calendarHtml' => $calendarHtml ]);

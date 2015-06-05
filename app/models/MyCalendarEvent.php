@@ -20,7 +20,7 @@ class MyCalendarEvent extends Eloquent
 
     public function scopeGetEventsByStartAndEnd($query, $userId, $start, $end)
     {
-        $res = $query->selectRaw('id, title, start, end, eventMemo as url, allDay as allday')
+        $res = $query->selectRaw('id, title, start')
         ->where('userId', $userId)
         ->whereRAW("start BETWEEN DATE('$start') AND DATE('$end')");
     
