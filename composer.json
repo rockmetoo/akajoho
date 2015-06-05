@@ -14,8 +14,7 @@
         "intervention/image": "dev-master",
         "roumen/sitemap": "2.4.*",
         "artdarek/oauth-4-laravel": "dev-master",
-        "facebook/php-sdk-v4" : "4.0.*",
-        "makzumi/calendar": "dev-master"
+        "facebook/php-sdk-v4" : "4.0.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*@dev",

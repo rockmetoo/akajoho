@@ -5,64 +5,19 @@
 @include('layouts.leftSideUserBlock')
 
 @section('internalCSSLibrary')
-    @if (App::environment('production'))
-    	{{ HTML::style('/css/fullcalendar.css', [], true) }}
-    	{{ HTML::style('/css/fullcalendar.print.css', [], true) }}
-    @else
-    	{{ HTML::style('/css/fullcalendar.css') }}
-    	{{ HTML::style('/css/fullcalendar.print.css') }}
-    @endif
 @stop
 
 @section('internalJSLibrary')
     @if (App::environment('production'))
-    	{{ HTML::script('/js/moment.min.js', [], true) }}
     	{{ HTML::script('/js/jquery-1.11.0.js', [], true) }}
-        {{ HTML::script('/js/fullcalendar.js', [], true) }}
     @else
-    	{{ HTML::script('/js/moment.min.js') }}
     	{{ HTML::script('/js/jquery-1.11.0.js') }}
-        {{ HTML::script('/js/fullcalendar.js') }}
     @endif
 @stop
 
 @section('internalJSCode')
     <script type="text/javascript">
     jQuery(function($) {
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay'
-			},
-			defaultDate: '{{ date("Y-m-d") }}',
-			editable: false, // disable dragging
-			eventLimit: true, // allow "more" link when too many events
-			eventSources: [{
-				url: "/mycalendar/events",
-				borderColor: '1px solid #3a87ad',
-				backgroundColor: '#3a87ad',
-				textColor: 'black'
-			}],
-			eventRender: function(event, element, view) {
-			    if (event.allDay == 1) {
-					event.allDay = true;
-			    } else {
-					event.allDay = false;
-			    }
-			},
-			selectable: true,
-			select: function(start, end, allDay) {
-				var d = new Date(start);
-				location.href = "/mycalendar/add/event/" + d.getTime();
-				return false;
-			},
-			eventClick: function(event, jsEvent, view) {
-				location.href = "/mycalendar/update/event/" + event.id;
-				return false;
-			}
-		});
-
 		@if (null !== Session::get('success'))
 		setTimeout(function () {
 			$('.alert-success').hide('slow');
@@ -97,7 +52,6 @@
                 @endif
                 
                 {{ $calendarHtml }}
-                <!-- <div id='calendar'></div> -->
 			</div>
 		</div>
 	</div>    

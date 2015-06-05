@@ -26,8 +26,8 @@
     <script type="text/javascript">
     jQuery(function($) {
 
-		$('#start').datetimepicker({format: 'Y-m-d H:i', lang: 'en', minDate: new Date({{ $milliseconds }}) });
-		$('#end').datetimepicker({format: 'Y-m-d H:i', lang: 'en', minDate: new Date({{ $milliseconds }}) });
+		$('#start').datetimepicker({format: 'Y-m-d H:i', lang: 'en', minDate: new Date({{ $timestamp*1000 }}) });
+		$('#end').datetimepicker({format: 'Y-m-d H:i', lang: 'en', minDate: new Date({{ $timestamp*1000 }}) });
 
 		$('#emailme').change(function() {
 			if (this.checked) {
@@ -77,7 +77,7 @@
                     <div class="panel-heading">Add a Calendar Event</div>
                     <div class="panel-body">
                         <div class="row">
-                            <form name="addEventForm" action="/mycalendar/add/event/{{ $milliseconds }}" method="post" role="form">
+                            <form name="addEventForm" action="/mycalendar/add/event/{{ $timestamp }}" method="post" role="form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="col-lg-12">
                                     <div class="form-group">

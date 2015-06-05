@@ -125,8 +125,7 @@ return array(
         'Bugsnag\BugsnagLaravel\BugsnagLaravelServiceProvider',
     	'Intervention\Image\ImageServiceProvider',
     	'Roumen\Sitemap\SitemapServiceProvider',
-    	'Artdarek\OAuth\OAuthServiceProvider',
-    	'Makzumi\Calendar\CalendarServiceProvider'
+    	'Artdarek\OAuth\OAuthServiceProvider'
     ),
 
     /*

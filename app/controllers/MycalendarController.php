@@ -6,9 +6,22 @@ class MycalendarController extends BaseController
     {
     	$cal = Calendar::make();
     	
+    	$cal->setBasePath('/mycalendar');
+    	$cal->showNav(true);
+    	$cal->setDate(Input::get('cdate'));
+    	$cal->setView(Input::get('cv'));
+    	
     	$cal->setTableClass('table table-striped table-bordered table-hover dataTable no-footer');
+    	
     	$cal->setNextIcon('<button class="btn btn-outline btn-default" type="button">Next</button>');
     	$cal->setPrevIcon('<button class="btn btn-outline btn-default" type="button">Previous</button>');
+    	$cal->setNextClass('cal_next pull-right');
+    	
+    	$cal->setMonthIcon('<button class="btn btn-outline btn-default" type="button">Month</button>');
+    	$cal->setWeekIcon('<button class="btn btn-outline btn-default" type="button">Week</button>');
+    	$cal->setDayIcon('<button class="btn btn-outline btn-default" type="button">Day</button>');
+    	
+    	$cal->setEvents(array());
     	$calendarHtml = $cal->generate();
     	
 		return View::make('mycalendar.index', [ 'calendarHtml' => $calendarHtml ]);
@@ -29,9 +42,8 @@ class MycalendarController extends BaseController
     	}
     }
     
-    public function getAddEvent($milliseconds)
+    public function getAddEvent($timestamp)
     {
-    	$timestamp	= $milliseconds/1000;
     	$date		= date('Y-m-d', $timestamp);
     	
     	$facebookAuth = array();
@@ -49,7 +61,7 @@ class MycalendarController extends BaseController
     		[
     			'facebookAuth'	=> $facebookAuth,
     			'twitterAuth'	=> $twitterAuth,
-    			'milliseconds'	=> $milliseconds
+    			'timestamp'		=> $timestamp
     		]
     	);
     }
