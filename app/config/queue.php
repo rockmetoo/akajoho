@@ -29,40 +29,13 @@ return array(
 	*/
 
 	'connections' => array(
-
-		'sync' => array(
-			'driver' => 'sync',
-		),
-
+		
 		'beanstalkd' => array(
 			'driver' => 'beanstalkd',
 			'host'   => 'localhost',
-			'queue'  => 'default',
+			'queue'  => 'akajoho',
 			'ttr'    => 60,
-		),
-
-		'sqs' => array(
-			'driver' => 'sqs',
-			'key'    => 'AKIAI7YOJZU5W2GX7DWQ',
-			'secret' => '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',
-			'queue'  => 'https://sqs.ap-northeast-1.amazonaws.com/020832499452/contact-thankyou',
-			'region' => 'ap-northeast-1',
-		),
-
-		'iron' => array(
-			'driver'  => 'iron',
-			'host'    => 'mq-aws-us-east-1.iron.io',
-			'token'   => 'your-token',
-			'project' => 'your-project-id',
-			'queue'   => 'your-queue-name',
-			'encrypt' => true,
-		),
-
-		'redis' => array(
-			'driver' => 'redis',
-			'queue'  => 'default',
-		),
-
+		)
 	),
 
 	/*
